@@ -35,8 +35,8 @@ import DetailPlant from './pages/PlantDetail/DetailPlant';
 import Footer from './components/footer/Footer';
 
 // axios.defaults.baseURL = 'https://api.jamumedicine.com';
-//axios.defaults.baseURL = "http://localhost:3003";
-axios.defaults.baseURL = 'http://117.53.45.222:3003';
+axios.defaults.baseURL = 'http://172.245.185.120:3003';
+// axios.defaults.baseURL = 'http://117.53.45.222:3003';
 
 class App extends Component {
   constructor(props) {
