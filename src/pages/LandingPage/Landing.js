@@ -16,7 +16,7 @@ const styles = {
     padding: '2px 4px',
     display: 'flex',
     alignItems: 'center',
-    width: 400
+    width: '650px'
   },
   input: {
     marginLeft: 8,
@@ -74,27 +74,27 @@ class Landing extends Component {
     const { classes } = this.props;
     const images = [
       {
-        url: '/asset/herbsmed.jpeg',
+        url: '/asset/herbsmed-2.png',
         title: 'Herbal Medicine',
         directory: '/herbmeds'
       },
       {
-        url: '/asset/plant.jpeg',
+        url: '/asset/plant-2.png',
         title: 'Plant',
         directory: '/plant'
       },
       {
-        url: '/asset/compound.jpeg',
+        url: '/asset/compound-2.png',
         title: 'Compound',
         directory: '/compound'
       },
       {
-        url: '/asset/comparision.jpeg',
+        url: '/asset/comparision-2.png',
         title: 'Comparison',
         directory: '/compare'
       },
       {
-        url: '/asset/prediction.jpeg',
+        url: '/asset/prediction-2.png',
         title: 'Prediction',
         directory: '/predict'
       },
@@ -104,12 +104,12 @@ class Landing extends Component {
       //   directory: "/tacit"
       // },
       {
-        url: '/asset/explicit.jpeg',
+        url: '/asset/explicit-2.png',
         title: 'Knowledge',
         directory: '/knowledge'
       },
       {
-        url: '/asset/plant_ethnic.jpeg',
+        url: '/asset/plant_ethnic-2.png',
         title: 'Map Ethnic',
         directory: '/map/ethnic'
       }
@@ -119,29 +119,34 @@ class Landing extends Component {
       <div
         style={{
           display: 'flex',
-          flexDirection: 'column'
+          flexDirection: 'column',
+          flexWrap: 'wrap'
         }}
       >
         <div
           style={{
             width: '100%',
-            height: '500px',
+            height: 'auto',
             display: 'flex',
+            flexWrap: 'wrap',
             flexDirection: 'column',
-            //justifyContent: "center",
-            backgroundColor: '#B9D78E',
+            justifyContent: 'center',
+            backgroundColor: '#ffff',
             alignItems: 'center',
-            backgroundImage: `url(/asset/bg-search.png)`,
+            backgroundImage: `url(/asset/bg-homepage.png)`,
             backgroundSize: 'cover'
           }}
         >
           <h3
             style={{
+              display: 'flex',
               textAlign: 'center',
-              fontSize: '2.5em',
-              fontWeight: '600',
-              margin: '100px 0 0 0',
-              color: 'white'
+              fontSize: '3.0em',
+              fontFamily: 'Poppins, sans-serif',
+              fontWeight: '750',
+              margin: '100px 0 20px 0',
+              padding: '0px 400px 0px 400px',
+              color: 'black'
             }}
           >
             {' '}
@@ -149,18 +154,25 @@ class Landing extends Component {
           </h3>
           <h3
             style={{
+              display: 'flex',
               textAlign: 'center',
               fontSize: '1.5em',
+              fontFamily: 'Poppins, sans-serif',
               fontWeight: '300',
-              margin: '0 0 30px 0',
-              color: 'white'
+              margin: '10px 0 50px 0',
+              color: 'black'
             }}
           >
             {' '}
             You can explore all about herbal medicine here{' '}
           </h3>
 
-          <Paper className={classes.root} elevation={1}>
+          <Paper
+            square={false}
+            className={classes.root}
+            elevation={1}
+            style={{ borderRadius: 25, Width: '650px' }}
+          >
             <FormControl className={classes.margin}></FormControl>
             <InputBase
               autoFocus
@@ -170,42 +182,46 @@ class Landing extends Component {
               onKeyDown={this.handleKeyDown}
               onChange={this.handleInputChange}
               placeholder="Search all here"
+              inputProps={{ style: { fontFamily: 'Poppins, sans-serif' } }}
             />
             <IconButton
               onClick={this.handleClick}
-              className={classes.iconButton}
+              // className={classes.iconButton}
               aria-label="Search"
             >
               <SearchIcon />
             </IconButton>
           </Paper>
+
           <h3
             style={{
               textAlign: 'center',
               fontSize: '1em',
+              fontFamily: 'Poppins, sans-serif',
               fontWeight: '400',
-              margin: '10px 0 30px 0',
-              color: 'white'
+              margin: '20px 0 100px 0',
+              color: 'black'
             }}
           >
-            Examples: cough, pegal linu, curcuma.
+            Examples: cough, pegal linu, curcuma, etc.
           </h3>
         </div>
 
-        <div
-          style={{
-            width: '95%',
-            margin: 'auto',
-            marginTop: '20px',
-            marginBottom: '20px',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(16rem, 1fr))',
-            gridGap: '2rem'
-          }}
-        >
-          {images.map(image => {
-            return <ButtonCard image={image} />;
-          })}
+        <div>
+          <h3
+            style={{
+              textAlign: 'center',
+              fontSize: '2em',
+              fontStyle: 'normal',
+              fontFamily: 'Poppins, sans-serif',
+              fontWeight: '600',
+              margin: '30px 0 0px 0',
+              color: 'black'
+            }}
+          >
+            {' '}
+            What you’re looking for?{' '}
+          </h3>
         </div>
 
         <div
@@ -213,7 +229,36 @@ class Landing extends Component {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            backgroundColor: '#f1f1f1'
+            backgroundColor: '#ffff',
+            margin: '30px 50px 30px 50px',
+            padding: '0 0 25px 0'
+          }}
+        >
+          <div
+            style={{
+              width: '100%',
+              display: 'flex',
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(16rem, 1fr))',
+              gridGap: '5rem'
+            }}
+          >
+            {images.map(image => {
+              return <ButtonCard image={image} />;
+            })}
+          </div>
+        </div>
+
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            backgroundColor: '#ffff',
+            margin: '30px 50px 30px 50px'
           }}
         >
           <div
@@ -221,8 +266,7 @@ class Landing extends Component {
               width: '100%',
               maxWidth: '800px',
               minWidth: '300px',
-              backgroundColor: 'light-grey',
-              color: 'grey',
+              color: 'black',
               marginTop: '30px',
               marginBottom: '30px'
             }}
@@ -230,9 +274,10 @@ class Landing extends Component {
             <h3
               style={{
                 textAlign: 'center',
-                fontSize: '3em',
-                fontWeight: '200',
-                margin: '0 0 3vh 0'
+                fontSize: '2em',
+                fontWeight: '600',
+                margin: '0 0 3vh 0',
+                fontFamily: 'Poppins, sans-serif'
               }}
             >
               {' '}
@@ -240,8 +285,14 @@ class Landing extends Component {
             </h3>
             <div
               style={{
-                fontSize: '1.25em',
-                textAlign: 'justify'
+                fontSize: '1em',
+                display: 'flex',
+                flexDirection: 'row',
+                textAlign: 'justify',
+                fontFamily: 'Poppins, sans-serif',
+                fontWeight: '400',
+                margin: '0 0 3vh 0',
+                padding: '0px 0px 30px 0px'
               }}
             >
               Knowledge Management System Jamu (KMS Jamu) is a web application
@@ -249,7 +300,7 @@ class Landing extends Component {
               formulas, predicting the efficacy of several plants and compounds,
               and other information relating to herbs.
             </div>
-            <div
+            {/* <div
               style={{
                 display: 'flex',
                 flexDirection: 'row-reverse'
@@ -262,7 +313,7 @@ class Landing extends Component {
                 src={logo}
                 alt="Logo"
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
