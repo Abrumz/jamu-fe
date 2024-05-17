@@ -33,7 +33,7 @@ const styles = {
     flex: 1
   },
   iconButton: {
-    padding: 10
+    padding: 100
   }
 };
 
@@ -259,7 +259,7 @@ class Compound extends Component {
                   margin: 'auto'
                 }}
               >
-                <div
+                {/* <div
                   style={{
                     width: '50%',
                     display: 'flex',
@@ -289,8 +289,8 @@ class Compound extends Component {
                       />
                     </Breadcrumbs>
                   </Paper>
-                </div>
-                <div
+                </div> */}
+                {/* <div
                   style={{
                     width: '50%',
                     display: 'flex',
@@ -320,7 +320,7 @@ class Compound extends Component {
                       <SearchIcon />
                     </IconButton>
                   </Paper>
-                </div>
+                </div> */}
               </div>
             </Toolbar>
           </AppBar>
@@ -333,7 +333,7 @@ class Compound extends Component {
             margin: 'auto'
           }}
         >
-          <div
+          {/* <div
             style={{
               width: '50%',
               display: 'flex',
@@ -359,8 +359,8 @@ class Compound extends Component {
                 />
               </Breadcrumbs>
             </Paper>
-          </div>
-          <div
+          </div> */}
+          {/* <div
             style={{
               width: '50%',
               display: 'flex',
@@ -390,7 +390,7 @@ class Compound extends Component {
                 <SearchIcon />
               </IconButton>
             </Paper>
-          </div>
+          </div> */}
         </div>
         {this.state.onEror ? (
           <ErorPage />

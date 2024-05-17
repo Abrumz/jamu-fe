@@ -361,7 +361,7 @@ class ComparePage extends React.Component {
               width: '100%'
             }}
           >
-            <Paper
+            {/* <Paper
               style={{
                 width: '90%',
                 margin: 'auto',
@@ -404,7 +404,24 @@ class ComparePage extends React.Component {
                   />
                 </Breadcrumbs>
               </div>
-            </Paper>
+            </Paper> */}
+
+            <div
+              style={{
+                color: '#023436',
+                fontSize: 28,
+                fontFamily: 'Poppins',
+                fontWeight: '600',
+                wordWrap: 'break-word',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: 48
+              }}
+            >
+              <p>Compare Herbal Medicine</p>
+            </div>
+
             <Paper
               style={{
                 width: '70%',
@@ -412,15 +429,19 @@ class ComparePage extends React.Component {
                 marginTop: '30px',
                 marginBottom: '30px',
                 padding: '10px',
-                minHeight: '350px',
-                backgroundColor: '#f8f8f8'
+                minHeight: '350px'
+                // backgroundColor: '#f8f8f8'
               }}
             >
               <h6
                 style={{
-                  margin: '0',
-                  color: 'grey',
-                  marginBottom: '10px'
+                  // Name of herbal medicine 1
+                  color: '#023436',
+                  fontSize: 16,
+                  fontFamily: 'Poppins',
+                  fontWeight: '500',
+                  // lineHeight: 20,
+                  wordWrap: 'break-word'
                 }}
               >
                 Name of herbal medicine 1 :
@@ -435,9 +456,12 @@ class ComparePage extends React.Component {
               <div className={classes.divider} />
               <h6
                 style={{
-                  margin: '0',
-                  color: 'grey',
-                  marginBottom: '10px'
+                  color: '#023436',
+                  fontSize: 16,
+                  fontFamily: 'Poppins',
+                  fontWeight: '500',
+                  // lineHeight: 20,
+                  wordWrap: 'break-word'
                 }}
               >
                 Name of herbal medicine 2 :
@@ -460,6 +484,7 @@ class ComparePage extends React.Component {
               >
                 <Button
                   variant="contained"
+                  style={{ backgroundColor: '#5FAD56', color: '#FFFFFF' }}
                   disabled={
                     this.state.forLabelherbmed1 === null ||
                     this.state.forLabelherbmed2 === null
@@ -519,14 +544,29 @@ class ComparePage extends React.Component {
                         </Typography>
                         <h6
                           style={{
+                            // Company
+                            color: '#023436',
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            fontWeight: '600',
+                            wordWrap: 'break-word',
                             margin: '0',
-                            color: 'grey'
+                            marginBottom: '12',
+                            marginTop: '12'
                           }}
                         >
                           Company :
                         </h6>
                         <Typography
-                          style={{ marginLeft: '10px' }}
+                          style={{
+                            marginLeft: '10px',
+                            color: '#023436',
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            fontWeight: '400',
+                            wordWrap: 'break-word',
+                            margin: '0'
+                          }}
                           variant="caption"
                           display="block"
                           gutterBottom
@@ -537,14 +577,28 @@ class ComparePage extends React.Component {
                         </Typography>
                         <h6
                           style={{
+                            color: '#023436',
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            fontWeight: '600',
+                            wordWrap: 'break-word',
                             margin: '0',
-                            color: 'grey'
+                            marginBottom: '12',
+                            marginTop: '12'
                           }}
                         >
                           Address company :
                         </h6>
                         <Typography
-                          style={{ marginLeft: '10px' }}
+                          style={{
+                            marginLeft: '10px',
+                            color: '#023436',
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            fontWeight: '400',
+                            wordWrap: 'break-word',
+                            margin: '0'
+                          }}
                           variant="caption"
                           display="block"
                           gutterBottom
@@ -555,14 +609,28 @@ class ComparePage extends React.Component {
                         </Typography>
                         <h6
                           style={{
+                            color: '#023436',
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            fontWeight: '600',
+                            wordWrap: 'break-word',
                             margin: '0',
-                            color: 'grey'
+                            marginBottom: '12',
+                            marginTop: '12'
                           }}
                         >
                           Efficacy :
                         </h6>
                         <Typography
-                          style={{ marginLeft: '10px' }}
+                          style={{
+                            marginLeft: '10px',
+                            color: '#023436',
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            fontWeight: '400',
+                            wordWrap: 'break-word',
+                            margin: '0'
+                          }}
                           variant="caption"
                           display="block"
                           gutterBottom
@@ -578,59 +646,102 @@ class ComparePage extends React.Component {
                         }}
                       >
                         <Typography variant="h6" gutterBottom>
-                          {this.state.herbmed1.name}
+                          {this.state.herbmed2.name}
                         </Typography>
                         <h6
                           style={{
+                            // Company
+                            color: '#023436',
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            fontWeight: '600',
+                            wordWrap: 'break-word',
                             margin: '0',
-                            color: 'grey'
+                            marginBottom: '12',
+                            marginTop: '12'
                           }}
                         >
                           Company :
                         </h6>
                         <Typography
-                          style={{ marginLeft: '10px' }}
+                          style={{
+                            marginLeft: '10px',
+                            color: '#023436',
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            fontWeight: '400',
+                            wordWrap: 'break-word',
+                            margin: '0'
+                          }}
                           variant="caption"
                           display="block"
                           gutterBottom
                         >
-                          {this.state.herbmed1.refCompany
-                            ? this.state.herbmed1.refCompany.cname
+                          {this.state.herbmed2.refCompany
+                            ? this.state.herbmed2.refCompany.cname
                             : null}
                         </Typography>
                         <h6
                           style={{
+                            color: '#023436',
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            fontWeight: '600',
+                            wordWrap: 'break-word',
                             margin: '0',
-                            color: 'grey'
+                            marginBottom: '12',
+                            marginTop: '12'
                           }}
                         >
                           Address company :
                         </h6>
                         <Typography
-                          style={{ marginLeft: '10px' }}
+                          style={{
+                            marginLeft: '10px',
+                            color: '#023436',
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            fontWeight: '400',
+                            wordWrap: 'break-word',
+                            margin: '0'
+                          }}
                           variant="caption"
                           display="block"
                           gutterBottom
                         >
-                          {this.state.herbmed1.refCompany
-                            ? this.state.herbmed1.refCompany.address
+                          {this.state.herbmed2.refCompany
+                            ? this.state.herbmed2.refCompany.address
                             : null}
                         </Typography>
                         <h6
                           style={{
+                            color: '#023436',
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            fontWeight: '600',
+                            wordWrap: 'break-word',
                             margin: '0',
-                            color: 'grey'
+                            marginBottom: '12',
+                            marginTop: '12'
                           }}
                         >
                           Efficacy :
                         </h6>
                         <Typography
-                          style={{ marginLeft: '10px' }}
+                          style={{
+                            marginLeft: '10px',
+                            color: '#023436',
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            fontWeight: '400',
+                            wordWrap: 'break-word',
+                            margin: '0'
+                          }}
                           variant="caption"
                           display="block"
                           gutterBottom
                         >
-                          {this.state.herbmed1.efficacy}
+                          {this.state.herbmed2.efficacy}
                         </Typography>
                       </Paper>
                     </div>
