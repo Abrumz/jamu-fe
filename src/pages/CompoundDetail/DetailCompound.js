@@ -128,20 +128,51 @@ class DetailCompound extends Component {
                 //border: "5px dotted #89b143"
               }}
             >
-              <Typography variant="caption" display="block" gutterBottom>
-                Compond Id : {this.state.compound.compound_id}
+              <Typography
+                variant="caption"
+                display="block"
+                gutterBottom
+                style={{
+                  color: '#023436',
+                  fontSize: 16,
+                  fontFamily: 'Poppins',
+                  fontWeight: '600',
+                  // lineHeight: 20,
+                  wordWrap: 'break-word'
+                }}
+              >
+                Compond Id :{' '}
+                <span style={{ fontWeight: 400 }}>
+                  {this.state.compound.compound_id}
+                </span>
               </Typography>
-              <Typography variant="caption" display="block" gutterBottom>
-                Name compound : {this.state.compound.cname}
+
+              <Typography
+                variant="caption"
+                display="block"
+                gutterBottom
+                style={{
+                  color: '#023436',
+                  fontSize: 16,
+                  fontFamily: 'Poppins',
+                  fontWeight: '600',
+                  // lineHeight: 20,
+                  wordWrap: 'break-word'
+                }}
+              >
+                Name Compound :{' '}
+                <span style={{ fontWeight: 400 }}>
+                  {this.state.compound.cname}
+                </span>
               </Typography>
               <label
                 style={{
-                  color: 'grey',
-                  fontWeight: 'lighter',
-                  fontSize: '13px',
-                  display: 'block',
-                  marginTop: '10px',
-                  marginBottom: '5px'
+                  color: '#023436',
+                  fontSize: 16,
+                  fontFamily: 'Poppins',
+                  fontWeight: '600',
+                  // lineHeight: 20,
+                  wordWrap: 'break-word'
                 }}
               >
                 Reference Plant :
@@ -186,12 +217,12 @@ class DetailCompound extends Component {
 
               <label
                 style={{
-                  color: 'grey',
-                  fontWeight: 'lighter',
-                  fontSize: '13px',
-                  display: 'block',
-                  marginTop: '10px',
-                  marginBottom: '5px'
+                  color: '#023436',
+                  fontSize: 16,
+                  fontFamily: 'Poppins',
+                  fontWeight: '600',
+                  // lineHeight: 20,
+                  wordWrap: 'break-word'
                 }}
               >
                 Reference Crude :

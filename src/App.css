@@ -3,7 +3,8 @@
   margin: auto;
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  /* grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); */
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   grid-gap: 2rem;
   margin-bottom: 20px;
 }
@@ -77,8 +78,16 @@
 }
 
 .reff li {
-  border: 1px solid #ebebeb;
-  background-color: #ebebeb;
+  /* border: 1px solid #ebebeb;
+  background-color: #ebebeb; */
+
+  color: var(--Text-tx_normal, #023436);
+  /* Paragraph/p16/Regular */
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
 
   color: grey;
   padding: 0.1rem 0.4rem;
