@@ -98,7 +98,7 @@ function CardPlant(props) {
             className="reff"
             style={{ height: 'auto', flexDirection: 'column' }}
           >
-            {props.reff.map((item, index) => {
+            {props.reff.slice(0, 3).map((item, index) => {
               return (
                 <li
                   key={index}
