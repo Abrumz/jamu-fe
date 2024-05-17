@@ -51,7 +51,15 @@ const styles = theme => ({
 });
 function TabContainer(props) {
   return (
-    <Typography component="div" style={{ padding: 8 * 3 }}>
+    <Typography
+      component="div"
+      style={{
+        width: '91%',
+        margin: 'auto',
+        padding: '15px',
+        marginBottom: '20px'
+      }}
+    >
       {props.children}
     </Typography>
   );
@@ -230,7 +238,7 @@ class DetailHerbMed extends Component {
                   />
                   <StyledBreadcrumb
                     component="a"
-                    href="#"
+                    href="/herbmeds"
                     label="Herbal Medicine"
                   />
                   <StyledBreadcrumb
@@ -240,7 +248,7 @@ class DetailHerbMed extends Component {
                 </Breadcrumbs>
               </div>
             </Paper>
-            <Paper
+            {/* <Paper
               style={{
                 width: '85%',
                 margin: 'auto',
@@ -249,117 +257,122 @@ class DetailHerbMed extends Component {
                 padding: '30px',
                 backgroundColor: 'rgba(0, 0, 0, 0.05)'
               }}
+            > */}
+            <Paper
+              style={{
+                width: '90%',
+                margin: 'auto',
+                marginTop: '20px',
+                marginBottom: '10px',
+                padding: '15px'
+              }}
             >
-              <Paper
-                style={{
-                  width: '90%',
-                  margin: 'auto',
-                  marginTop: '20px',
-                  marginBottom: '10px',
-                  padding: '30px'
-                }}
-              >
-                <Typography variant="h6" gutterBottom>
+              {/* <Typography variant="h6" gutterBottom>
                   {this.state.detailHerbMed.name}
-                </Typography>
-                <h6
-                  style={{
-                    margin: '0',
-                    color: 'grey'
-                  }}
-                >
-                  Company :
-                </h6>
-                <Typography
-                  style={{ marginLeft: '10px' }}
-                  variant="caption"
-                  display="block"
-                  gutterBottom
-                >
-                  {refCompany ? refCompany.cname : null}
-                </Typography>
-                <h6
-                  style={{
-                    margin: '0',
-                    color: 'grey'
-                  }}
-                >
-                  Address company :
-                </h6>
-                <Typography
-                  style={{ marginLeft: '10px' }}
-                  variant="caption"
-                  display="block"
-                  gutterBottom
-                >
-                  {refCompany ? refCompany.address : null}
-                </Typography>
-                <h6
-                  style={{
-                    margin: '0',
-                    color: 'grey'
-                  }}
-                >
-                  Efficacy :
-                </h6>
-                <Typography
-                  style={{ marginLeft: '10px' }}
-                  variant="caption"
-                  display="block"
-                  gutterBottom
-                >
-                  {this.state.detailHerbMed.efficacy}
-                </Typography>
-                <h6
-                  style={{
-                    margin: '0',
-                    color: 'grey'
-                  }}
-                >
-                  Disease class description :
-                </h6>
-                <Typography
-                  style={{ marginLeft: '10px' }}
-                  variant="caption"
-                  display="block"
-                  align="justify"
-                  gutterBottom
-                >
-                  {refDclass ? refDclass.description : null}
-                </Typography>
-                <h6
-                  style={{
-                    margin: '0',
-                    color: 'grey'
-                  }}
-                >
-                  Reference :
-                </h6>
-                <Typography
-                  style={{ marginLeft: '10px' }}
-                  variant="caption"
-                  display="block"
-                  align="justify"
-                  gutterBottom
-                >
-                  {this.state.detailHerbMed.ref
-                    ? this.state.detailHerbMed.ref
-                    : null}
-                </Typography>
-              </Paper>
-              <Tabs
-                value={this.state.value}
-                onChange={this.handleChange}
-                indicatorColor="primary"
-                textColor="primary"
-                centered
+                </Typography> */}
+              <h5
+                style={{
+                  margin: '0',
+                  color: 'black',
+                  fontWeight: 'bold'
+                }}
               >
-                <Tab label="Crude in this formula" />
-                <Tab label="Plant" />
+                Company
+              </h5>
+              <Typography
+                style={{ marginTop: '10px' }}
+                variant="caption"
+                display="block"
+                gutterBottom
+              >
+                {refCompany ? refCompany.cname : null}
+              </Typography>
+              <h5
+                style={{
+                  margin: '0',
+                  color: 'black',
+                  fontWeight: 'bold'
+                }}
+              >
+                Address company
+              </h5>
+              <Typography
+                style={{ marginTop: '10px' }}
+                variant="caption"
+                display="block"
+                gutterBottom
+              >
+                {refCompany ? refCompany.address : null}
+              </Typography>
+              <h5
+                style={{
+                  margin: '0',
+                  color: 'black',
+                  fontWeight: 'bold'
+                }}
+              >
+                Efficacy
+              </h5>
+              <Typography
+                style={{ marginTop: '10px' }}
+                variant="caption"
+                display="block"
+                gutterBottom
+              >
+                {this.state.detailHerbMed.efficacy}
+              </Typography>
+              <h5
+                style={{
+                  margin: '0',
+                  color: 'black',
+                  fontWeight: 'bold'
+                }}
+              >
+                Disease class description
+              </h5>
+              <Typography
+                style={{ marginTop: '10px' }}
+                variant="caption"
+                display="block"
+                align="justify"
+                gutterBottom
+              >
+                {refDclass ? refDclass.description : null}
+              </Typography>
+              <h5
+                style={{
+                  margin: '0',
+                  color: 'black',
+                  fontWeight: 'bold'
+                }}
+              >
+                Reference
+              </h5>
+              <Typography
+                style={{ marginTop: '10px' }}
+                variant="caption"
+                display="block"
+                align="justify"
+                gutterBottom
+              >
+                {this.state.detailHerbMed.ref
+                  ? this.state.detailHerbMed.ref
+                  : null}
+              </Typography>
+            </Paper>
+            <Tabs
+              value={this.state.value}
+              onChange={this.handleChange}
+              indicatorColor="primary"
+              textColor="primary"
+              centered
+            >
+              <Tab label="Crude in this formula" />
+              <Tab label="Plant" />
 
-                {/* <Tab label="Compound" /> */}
-              </Tabs>
-              <Paper
+              {/* <Tab label="Compound" /> */}
+            </Tabs>
+            {/* <Paper
                 style={{
                   width: '90%',
                   margin: 'auto',
@@ -367,108 +380,106 @@ class DetailHerbMed extends Component {
                   marginBottom: '10px',
                   padding: '30px'
                 }}
-              >
-                {this.state.value === 1 && (
-                  <TabContainer>
-                    {this.state.detailHerbMed.refPlant !== undefined && (
-                      <div className="for-card">
-                        {this.state.detailHerbMed.refPlant.map(item => (
-                          <Card
-                            key={item.id}
-                            id={item.idplant}
-                            name={item.sname}
-                            image={item.refimg}
-                            reff={item.refCrude}
-                            modalCrude={this.modalCrude}
-                          />
-                        ))}
-                      </div>
-                    )}
-                  </TabContainer>
+              > */}
+            {this.state.value === 1 && (
+              <TabContainer>
+                {this.state.detailHerbMed.refPlant !== undefined && (
+                  <div className="for-card">
+                    {this.state.detailHerbMed.refPlant.map(item => (
+                      <Card
+                        key={item.id}
+                        id={item.idplant}
+                        name={item.sname}
+                        image={item.refimg}
+                        reff={item.refCrude}
+                        modalCrude={this.modalCrude}
+                      />
+                    ))}
+                  </div>
                 )}
-                {this.state.value === 0 && (
-                  <TabContainer>
-                    {this.state.detailHerbMed.refCrude !== undefined &&
-                      this.state.detailHerbMed.refCrude.map(itm => {
-                        return (
-                          <ExpansionPanel>
-                            <ExpansionPanelSummary
-                              expandIcon={<ExpandMoreIcon />}
-                            >
-                              <Typography>
-                                {' '}
-                                <i>{itm.sname}</i>
-                              </Typography>
-                            </ExpansionPanelSummary>
-                            <ExpansionPanelDetails
-                              style={{
-                                display: 'flex',
-                                flexDirection: 'column'
-                              }}
-                            >
-                              <Typography
-                                variant="caption"
-                                display="block"
-                                gutterBottom
-                              >
-                                Saintifict Name : <i>{itm.sname}</i>
-                              </Typography>
-                              <Typography
-                                variant="caption"
-                                display="block"
-                                gutterBottom
-                              >
-                                Name (in english) : {itm.name_en}
-                              </Typography>
-                              <Typography
-                                variant="caption"
-                                display="block"
-                                gutterBottom
-                              >
-                                Local name I : {itm.name_loc1}
-                              </Typography>
-                              <Typography
-                                variant="caption"
-                                display="block"
-                                gutterBottom
-                              >
-                                Local name II : <i>{itm.name_loc2}</i>
-                              </Typography>
-                              <Typography
-                                variant="caption"
-                                display="block"
-                                gutterBottom
-                              >
-                                Global Name : <i>{itm.gname}</i>
-                              </Typography>
-                              <Typography
-                                variant="caption"
-                                display="block"
-                                gutterBottom
-                              >
-                                Effect : {itm.effect}
-                              </Typography>
-                              <Typography
-                                variant="caption"
-                                display="block"
-                                gutterBottom
-                              >
-                                Location Effect : {itm.effect_loc}
-                              </Typography>
-                              <Typography
-                                variant="caption"
-                                display="block"
-                                gutterBottom
-                              >
-                                Refrence : {itm.ref}
-                              </Typography>
-                            </ExpansionPanelDetails>
-                          </ExpansionPanel>
-                        );
-                      })}
-                  </TabContainer>
-                )}
-                {/* {this.state.value === 2 && (
+              </TabContainer>
+            )}
+            {this.state.value === 0 && (
+              <TabContainer>
+                {this.state.detailHerbMed.refCrude !== undefined &&
+                  this.state.detailHerbMed.refCrude.map(itm => {
+                    return (
+                      <ExpansionPanel>
+                        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                          <Typography>
+                            {' '}
+                            <i>{itm.sname}</i>
+                          </Typography>
+                        </ExpansionPanelSummary>
+                        <ExpansionPanelDetails
+                          style={{
+                            display: 'flex',
+                            flexDirection: 'column'
+                          }}
+                        >
+                          <Typography
+                            variant="caption"
+                            display="block"
+                            gutterBottom
+                          >
+                            <b>Scientific Name:</b> <i>{itm.sname}</i>
+                          </Typography>
+                          <Typography
+                            variant="caption"
+                            display="block"
+                            gutterBottom
+                          >
+                            <b>Name (in English):</b> {itm.name_en}
+                          </Typography>
+                          <Typography
+                            variant="caption"
+                            display="block"
+                            gutterBottom
+                          >
+                            <b>Local Name I:</b> {itm.name_loc1}
+                          </Typography>
+                          <Typography
+                            variant="caption"
+                            display="block"
+                            gutterBottom
+                          >
+                            <b>Local Name II:</b> <i>{itm.name_loc2}</i>
+                          </Typography>
+                          <Typography
+                            variant="caption"
+                            display="block"
+                            gutterBottom
+                          >
+                            <b>Global Name:</b> <i>{itm.gname}</i>
+                          </Typography>
+                          <Typography
+                            variant="caption"
+                            display="block"
+                            gutterBottom
+                          >
+                            <b>Effect:</b> {itm.effect}
+                          </Typography>
+                          <Typography
+                            variant="caption"
+                            display="block"
+                            gutterBottom
+                          >
+                            <b>Location Effect:</b> {itm.effect_loc}
+                          </Typography>
+                          <Typography
+                            variant="caption"
+                            display="block"
+                            gutterBottom
+                          >
+                            <b>Reference:</b> {itm.ref}
+                          </Typography>
+                        </ExpansionPanelDetails>
+                      </ExpansionPanel>
+                    );
+                  })}
+              </TabContainer>
+            )}
+            {/* {this.state.value === 2 && (
                   <TabContainer>
                     <ExpansionPanel>
                       <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -496,8 +507,8 @@ class DetailHerbMed extends Component {
                     </ExpansionPanel>
                   </TabContainer>
                 )} */}
-              </Paper>
-            </Paper>
+            {/* </Paper> */}
+            {/* </Paper> */}
           </div>
         )}
         {this.state.modal.open === true ? (
