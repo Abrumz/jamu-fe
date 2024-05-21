@@ -25,7 +25,7 @@ function Footer(props) {
             style={{
               fontSize: '18px',
               textAlign: 'center',
-              fontWeight: '600',
+              fontWeight: '500',
               color: '#000'
             }}
           >
