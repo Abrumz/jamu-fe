@@ -57,7 +57,7 @@ function TabContainer(props) {
         width: '91%',
         margin: 'auto',
         padding: '15px',
-        marginBottom: '20px'
+        marginBottom: '30px'
       }}
     >
       {props.children}
@@ -204,7 +204,7 @@ class DetailHerbMed extends Component {
               style={{
                 width: '90%',
                 margin: 'auto',
-                marginTop: '15px',
+                marginTop: '30px',
                 marginBottom: '30px',
                 padding: '15px',
                 display: 'flex'
@@ -274,13 +274,14 @@ class DetailHerbMed extends Component {
                 style={{
                   margin: '0',
                   color: 'black',
-                  fontWeight: 'bold'
+                  fontWeight: 'bold',
+                  fontSize: '15px'
                 }}
               >
                 Company
               </h5>
               <Typography
-                style={{ marginTop: '10px' }}
+                style={{ marginTop: '10px', fontSize: '14px' }}
                 variant="caption"
                 display="block"
                 gutterBottom
@@ -291,13 +292,14 @@ class DetailHerbMed extends Component {
                 style={{
                   margin: '0',
                   color: 'black',
-                  fontWeight: 'bold'
+                  fontWeight: 'bold',
+                  fontSize: '15px'
                 }}
               >
                 Address company
               </h5>
               <Typography
-                style={{ marginTop: '10px' }}
+                style={{ marginTop: '10px', fontSize: '14px' }}
                 variant="caption"
                 display="block"
                 gutterBottom
@@ -308,13 +310,14 @@ class DetailHerbMed extends Component {
                 style={{
                   margin: '0',
                   color: 'black',
-                  fontWeight: 'bold'
+                  fontWeight: 'bold',
+                  fontSize: '15px'
                 }}
               >
                 Efficacy
               </h5>
               <Typography
-                style={{ marginTop: '10px' }}
+                style={{ marginTop: '10px', fontSize: '14px' }}
                 variant="caption"
                 display="block"
                 gutterBottom
@@ -325,13 +328,14 @@ class DetailHerbMed extends Component {
                 style={{
                   margin: '0',
                   color: 'black',
-                  fontWeight: 'bold'
+                  fontWeight: 'bold',
+                  fontSize: '15px'
                 }}
               >
                 Disease class description
               </h5>
               <Typography
-                style={{ marginTop: '10px' }}
+                style={{ marginTop: '10px', fontSize: '14px' }}
                 variant="caption"
                 display="block"
                 align="justify"
@@ -343,13 +347,14 @@ class DetailHerbMed extends Component {
                 style={{
                   margin: '0',
                   color: 'black',
-                  fontWeight: 'bold'
+                  fontWeight: 'bold',
+                  fontSize: '15px'
                 }}
               >
                 Reference
               </h5>
               <Typography
-                style={{ marginTop: '10px' }}
+                style={{ marginTop: '10px', fontSize: '14px' }}
                 variant="caption"
                 display="block"
                 align="justify"
