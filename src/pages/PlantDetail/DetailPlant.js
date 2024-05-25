@@ -5,6 +5,11 @@ import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardCompound from '../../components/card-compound/CardCompound';
+
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
@@ -28,8 +33,13 @@ import { emphasize } from '@material-ui/core/styles/colorManipulator';
 import CardHerbMed from '../../components/card-herbmed/CardHerbMed';
 import ModalCrude from '../../components/modal-crude/ModalCrude';
 
+import homeLogo from './home-icon.png';
+import plantLogo from './plant-icon.png';
+import load from './not-found.png';
+
 const StyledBreadcrumb = withStyles(theme => ({
   root: {
+    // backgroundColor: '#fff',
     backgroundColor: theme.palette.grey[100],
     height: 24,
     color: theme.palette.grey[800],
@@ -48,6 +58,40 @@ const styles = theme => ({
   avatar: {
     background: 'none',
     marginRight: -theme.spacing(1.5)
+  },
+  tabs: {
+    color: '#5FAD56',
+    backgroundColor: 'white'
+  },
+  tab: {
+    // color: "#5FAD56",
+    // "&:hover": {
+    //   color: "#4a8b44",
+    // },
+    color: 'black',
+    '&:hover': {
+      color: 'green'
+    },
+    '&$selected': {
+      color: 'green'
+    }
+  },
+
+  indicator: {
+    backgroundColor: '#5FAD56',
+    color: '#5FAD56'
+  },
+  cardContainer: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: '20px',
+    paddingTop: '30px'
+  },
+  cardItem: {
+    flex: '1 1 calc(33.333% - 20px)', // Mengatur agar ada 3 kartu per baris dengan gap 20px
+    maxWidth: 'calc(33.333% - 20px)',
+    boxSizing: 'border-box'
   }
 });
 function TabContainer(props) {
@@ -58,13 +102,25 @@ TabContainer.propTypes = {
   children: PropTypes.node.isRequired
 };
 
+class CustomTabs extends Component {
+  state = {
+    value: 0
+  };
+
+  handleChange = (event, newValue) => {
+    this.setState({ value: newValue });
+  };
+}
+
 class DetailPlant extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // compounds: [],
       value: 0,
       detailPlant: [],
-      loading: false,
+      loading: true,
+      loadData: false,
       snackbar: {
         open: false,
         success: false,
@@ -208,6 +264,7 @@ class DetailPlant extends Component {
 
   render() {
     const { classes } = this.props;
+    // const noDataImage = "./not-found.png";
     return (
       <div>
         {this.state.onEror ? (
@@ -218,9 +275,9 @@ class DetailPlant extends Component {
           <div>
             <Paper
               style={{
-                width: '90%',
+                width: '85%',
                 margin: 'auto',
-                marginTop: '15px',
+                marginTop: '80px',
                 marginBottom: '30px',
                 padding: '15px',
                 display: 'flex'
@@ -247,14 +304,31 @@ class DetailPlant extends Component {
                   <StyledBreadcrumb
                     component="a"
                     href="/"
-                    label="KMS Jamu"
-                    avatar={
-                      <Avatar className={classes.avatar}>
-                        <HomeIcon />
-                      </Avatar>
+                    label={
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <img
+                          src={homeLogo}
+                          alt="Logo"
+                          style={{ marginRight: '4px' }}
+                        />
+                        Home
+                      </div>
                     }
                   />
-                  <StyledBreadcrumb component="a" href="#" label="Plant" />
+                  <StyledBreadcrumb
+                    component="a"
+                    href="#"
+                    label={
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <img
+                          src={plantLogo}
+                          alt="Logo"
+                          style={{ marginRight: '4px' }}
+                        />
+                        Plants
+                      </div>
+                    }
+                  />
                   <StyledBreadcrumb
                     label={this.state.detailPlant.sname}
                     deleteIcon={<ExpandMoreIcon />}
@@ -264,12 +338,12 @@ class DetailPlant extends Component {
             </Paper>
             <Paper
               style={{
-                width: '80%',
+                width: '85%',
                 margin: 'auto',
                 marginTop: '30px',
                 marginBottom: '30px',
-                padding: '30px',
-                backgroundColor: '#f8f8f8'
+                padding: '15px',
+                backgroundColor: '#fff'
               }}
             >
               <Paper
@@ -277,27 +351,32 @@ class DetailPlant extends Component {
                   width: '90%',
                   margin: 'auto',
                   marginTop: '20px',
-                  marginBottom: '10px',
-                  padding: '30px'
+                  marginBottom: '62px',
+                  padding: '30px',
+                  backgroundColor: '#fff',
+                  display: 'flex',
+                  alignContent: 'center'
                 }}
               >
                 <div
                   style={{
                     display: 'flex',
-                    flexDirection: 'row'
+                    flexDirection: 'row',
+                    alignContent: 'center'
                   }}
                 >
                   <div
                     style={{
-                      marginRight: '20px'
+                      marginRight: '20px',
+                      color: '#000'
                     }}
                   >
                     <img
                       style={{
                         verticalAlign: 'middle',
                         borderStyle: 'none',
-                        maxHeight: '250px',
-                        width: '250px'
+                        maxHeight: '267px',
+                        width: '367px'
                       }}
                       alt=""
                       className="img-card"
@@ -305,44 +384,12 @@ class DetailPlant extends Component {
                     ></img>
                   </div>
                   <div>
-                    <Typography
-                      style={{
-                        color: 'grey',
-                        fontSize: '30px'
-                      }}
-                      variant="headline"
-                      display="block"
-                      gutterBottom
-                    >
-                      <i>{this.state.detailPlant.sname}</i>
-                    </Typography>
                     <h6
                       style={{
                         margin: '0',
-                        color: 'grey'
-                      }}
-                    >
-                      Efficacy :
-                    </h6>
-                    {this.state.detailPlant.efficacy &&
-                      this.state.detailPlant.efficacy.map(dt => (
-                        <Typography
-                          style={{
-                            color: 'grey',
-                            marginLeft: '10px',
-                            fontSize: '12px'
-                          }}
-                          variant="headline"
-                          display="block"
-                          gutterBottom
-                        >
-                          {dt}
-                        </Typography>
-                      ))}
-                    <h6
-                      style={{
-                        margin: '0',
-                        color: 'grey'
+                        color: 'black',
+                        fontSize: '16px',
+                        fontWeight: '600'
                       }}
                     >
                       Name :
@@ -351,9 +398,9 @@ class DetailPlant extends Component {
                       this.state.detailPlant.name_en.map(dt => (
                         <Typography
                           style={{
-                            color: 'grey',
-                            marginLeft: '10px',
-                            fontSize: '12px'
+                            color: 'black',
+                            // marginLeft: "10px",
+                            fontSize: '16px'
                           }}
                           variant="headline"
                           display="block"
@@ -366,9 +413,9 @@ class DetailPlant extends Component {
                       this.state.detailPlant.name_loc1.map(dt => (
                         <Typography
                           style={{
-                            color: 'grey',
-                            marginLeft: '10px',
-                            fontSize: '12px'
+                            color: 'black',
+                            // marginLeft: "10px",
+                            fontSize: '16px'
                           }}
                           variant="headline"
                           display="block"
@@ -381,9 +428,9 @@ class DetailPlant extends Component {
                       this.state.detailPlant.loc2.map(dt => (
                         <Typography
                           style={{
-                            color: 'grey',
+                            color: 'black',
                             marginLeft: '10px',
-                            fontSize: '12px'
+                            fontSize: '16px'
                           }}
                           variant="headline"
                           display="block"
@@ -395,7 +442,35 @@ class DetailPlant extends Component {
                     <h6
                       style={{
                         margin: '0',
-                        color: 'grey'
+                        color: 'black',
+                        fontSize: '16px',
+                        fontWeight: '600'
+                      }}
+                    >
+                      Efficacy :
+                    </h6>
+                    {this.state.detailPlant.efficacy &&
+                      this.state.detailPlant.efficacy.map(dt => (
+                        <Typography
+                          style={{
+                            color: 'black',
+                            // marginLeft: "10px",
+                            fontSize: '16px'
+                          }}
+                          variant="headline"
+                          display="block"
+                          gutterBottom
+                        >
+                          {dt}
+                        </Typography>
+                      ))}
+
+                    <h6
+                      style={{
+                        margin: '0',
+                        color: 'black',
+                        fontSize: '16px',
+                        fontWeight: '600'
                       }}
                     >
                       Potition :
@@ -404,9 +479,9 @@ class DetailPlant extends Component {
                       this.state.detailPlant.refCrude.map(dt => (
                         <Typography
                           style={{
-                            color: 'grey',
-                            marginLeft: '10px',
-                            fontSize: '12px'
+                            color: 'black',
+                            // marginLeft: "10px",
+                            fontSize: '16px'
                           }}
                           variant="headline"
                           display="block"
@@ -418,7 +493,9 @@ class DetailPlant extends Component {
                     <h6
                       style={{
                         margin: '0',
-                        color: 'grey'
+                        color: 'black',
+                        fontSize: '16px',
+                        fontWeight: '600'
                       }}
                     >
                       Reference :
@@ -427,9 +504,9 @@ class DetailPlant extends Component {
                       this.state.detailPlant.ref.map(dt => (
                         <Typography
                           style={{
-                            color: 'grey',
-                            marginLeft: '10px',
-                            fontSize: '12px'
+                            color: 'black',
+                            // marginLeft: "10px",
+                            fontSize: '16px'
                           }}
                           variant="headline"
                           display="block"
@@ -445,8 +522,8 @@ class DetailPlant extends Component {
                 value={this.state.value}
                 onChange={this.handleChange}
                 indicatorColor="primary"
-                textColor="primary"
                 centered
+                classes={{ root: classes.tabs, indicator: classes.indicator }}
               >
                 <Tab label="Herbal medicine use this plant" />
                 <Tab label="Crude Drug" />
@@ -464,17 +541,6 @@ class DetailPlant extends Component {
                   padding: '30px'
                 }}
               >
-                {/* {this.state.value === 0 && 
-                    <TabContainer>
-                        {this.state.detailPlant.refPlant !== undefined &&
-                        <div className="for-card">
-                        {this.state.detailPlant.refPlant.map(item =>
-                                  <CardExample key={item.id} name={item.sname} image={item.refimg} reff={item.refCrude} />
-                                )}
-                        </div>
-                        }
-                        
-                    </TabContainer>} */}
                 {this.state.value === 0 && (
                   <TabContainer>
                     {this.state.detailPlant.refHerbsMed && (
@@ -576,104 +642,113 @@ class DetailPlant extends Component {
                       })}
                   </TabContainer>
                 )}
+
+                {/* {this.state.value === 2 && (
+                  <TabContainer>
+                    <div className={classes.cardContainer}>
+                      {this.state.detailPlant.refCompound !== undefined && this.state.detailPlant.refCompound.length > 0 ? (
+                        this.state.detailPlant.refCompound.map((itm) => (
+                          <div key={itm._id} className={classes.cardItem}>
+                            <CardCompound id={itm._id} part={itm.refPlant} name={itm.cname} image={`https://pubchem.ncbi.nlm.nih.gov/image/imgsrv.fcgi?cid=${itm.pubchem_ID}`} reff={itm.refPlant} />
+                          </div>
+                        ))
+                      ) : (
+                        <div style={{ textAlign: "center", padding: "0px" }}>
+                          <img src={load} alt="nothing found" style={{ width: "100px", height: "100px" }} />
+                          
+                        </div>
+                      )}
+                    </div>
+                  </TabContainer>
+                )} */}
                 {this.state.value === 2 && (
                   <TabContainer>
-                    {this.state.detailPlant.refCompound !== undefined &&
-                      this.state.detailPlant.refCompound.map(itm => {
-                        return (
-                          <ExpansionPanel>
-                            <ExpansionPanelSummary
-                              expandIcon={<ExpandMoreIcon />}
-                            >
-                              <Typography>
-                                {' '}
-                                <i>{itm.cname}</i>
-                              </Typography>
-                            </ExpansionPanelSummary>
-                            {/* <ExpansionPanelDetails
-                              style={{
-                                display: "flex",
-                                flexDirection: "column"
-                              }}
-                            >
-                              <Typography variant="caption" gutterBottom>
-                                part_plant : {itm.part_plant}
-                              </Typography>
-                              <Typography variant="caption" gutterBottom>
-                                part : {itm.part}
-                              </Typography>
-                              <Typography variant="caption" gutterBottom>
-                                effect_plant : {itm.effect_plant}
-                              </Typography>
-                              <Typography variant="caption" gutterBottom>
-                                effect_part : {itm.effect_part}
-                              </Typography>
-                              <Typography variant="caption" gutterBottom>
-                                effect_compound : {itm.effect_compound}
-                              </Typography>
-                              <Typography variant="caption" gutterBottom>
-                                reff_metabolites : {itm.reff_metabolites}
-                              </Typography>
-                              <Typography variant="caption" gutterBottom>
-                                reff_addtional : {itm.reff_addtional}
-                              </Typography>
-                            </ExpansionPanelDetails> */}
-                          </ExpansionPanel>
-                        );
-                      })}
+                    <div className={classes.cardContainer}>
+                      {this.state.loading ? (
+                        <div style={{ textAlign: 'center', padding: '0px' }}>
+                          <Typography variant="subtitle1" gutterBottom>
+                            LOADING...
+                          </Typography>
+                        </div>
+                      ) : this.state.detailPlant.refCompound !== undefined &&
+                        this.state.detailPlant.refCompound.length > 0 ? (
+                        this.state.detailPlant.refCompound.map(itm => (
+                          <div key={itm._id} className={classes.cardItem}>
+                            <CardCompound
+                              id={itm._id}
+                              part={itm.refPlant}
+                              name={itm.cname}
+                              image={`https://pubchem.ncbi.nlm.nih.gov/image/imgsrv.fcgi?cid=${itm.pubchem_ID}`}
+                              reff={itm.refPlant}
+                            />
+                          </div>
+                        ))
+                      ) : (
+                        <div style={{ textAlign: 'center', padding: '30px' }}>
+                          <img
+                            src={load}
+                            alt="nothing found"
+                            style={{ width: '100px', height: '100px' }}
+                          />
+                        </div>
+                      )}
+                    </div>
                   </TabContainer>
                 )}
 
                 {this.state.value === 3 && (
                   <TabContainer>
                     {this.state.detailPlant.refEthnic !== undefined &&
-                      this.state.detailPlant.refEthnic.map(itm => {
-                        return (
-                          <ExpansionPanel>
-                            <ExpansionPanelSummary
-                              expandIcon={<ExpandMoreIcon />}
-                            >
-                              <Typography>
-                                {' '}
-                                <i>
-                                  {itm.ethnic} | {itm.disease_ing}
-                                </i>
-                              </Typography>
-                            </ExpansionPanelSummary>
-                            <ExpansionPanelDetails
-                              style={{
-                                display: 'flex',
-                                flexDirection: 'column'
-                              }}
-                            >
-                              <Typography variant="caption" gutterBottom>
-                                Name plant (in bahasa) : {itm.name_ina}
-                              </Typography>
-                              <Typography variant="caption" gutterBottom>
-                                Efficacy (in bahasa) : {itm.disease_ina}
-                              </Typography>
-                              <Typography variant="caption" gutterBottom>
-                                Efficacy (in english) : {itm.disease_ing}
-                              </Typography>
-                              {/* <Typography variant="caption" gutterBottom>
-                                    Species of plant :{" "}
-                                    <i>{itm.species}</i>
-                                  </Typography> */}
-                              <Typography variant="caption" gutterBottom>
-                                Family of plant : <i>{itm.family}</i>
-                              </Typography>
-                              <Typography variant="caption" gutterBottom>
-                                Part of plant used in therapeutic usage (in
-                                bahasa) : {itm.section_ina}
-                              </Typography>
-                              <Typography variant="caption" gutterBottom>
-                                Part of plant used in therapeutic usage (in
-                                english) : {itm.section_ing}
-                              </Typography>
-                            </ExpansionPanelDetails>
-                          </ExpansionPanel>
-                        );
-                      })}
+                    this.state.detailPlant.refEthnic.length > 0 ? (
+                      this.state.detailPlant.refEthnic.map(itm => (
+                        <ExpansionPanel key={itm.id}>
+                          <ExpansionPanelSummary
+                            expandIcon={<ExpandMoreIcon />}
+                          >
+                            <Typography>
+                              <i>
+                                {itm.ethnic} / {itm.disease_ing}
+                              </i>
+                            </Typography>
+                          </ExpansionPanelSummary>
+                          <ExpansionPanelDetails
+                            style={{
+                              display: 'flex',
+                              flexDirection: 'column'
+                            }}
+                          >
+                            <Typography variant="caption" gutterBottom>
+                              Name plant (in bahasa) : {itm.name_ina}
+                            </Typography>
+                            <Typography variant="caption" gutterBottom>
+                              Efficacy (in bahasa) : {itm.disease_ina}
+                            </Typography>
+                            <Typography variant="caption" gutterBottom>
+                              Efficacy (in english) : {itm.disease_ing}
+                            </Typography>
+                            <Typography variant="caption" gutterBottom>
+                              Family of plant : <i>{itm.family}</i>
+                            </Typography>
+                            <Typography variant="caption" gutterBottom>
+                              Part of plant used in therapeutic usage (in
+                              bahasa) : {itm.section_ina}
+                            </Typography>
+                            <Typography variant="caption" gutterBottom>
+                              Part of plant used in therapeutic usage (in
+                              english) : {itm.section_ing}
+                            </Typography>
+                          </ExpansionPanelDetails>
+                        </ExpansionPanel>
+                      ))
+                    ) : (
+                      <div style={{ textAlign: 'center', padding: '60px' }}>
+                        <img
+                          src={load}
+                          alt="nothing found"
+                          style={{ width: '100px', height: '100px' }}
+                        />
+                      </div>
+                    )}
                   </TabContainer>
                 )}
               </Paper>
