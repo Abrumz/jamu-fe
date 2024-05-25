@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../../App.css';
 import { withStyles } from '@material-ui/core/styles';
 import Axios from 'axios';
 
@@ -250,23 +251,23 @@ class Plant extends Component {
           <AppBar
             variant="dense"
             style={{
-              backgroundColor: '#89b143'
+              backgroundColor: '#000'
             }}
           >
-            <Toolbar>
+            {/* <Toolbar>
               <div
                 style={{
-                  width: '90%',
-                  display: 'flex',
-                  flexDirection: 'row',
-                  margin: 'auto'
+                  width: "90%",
+                  display: "flex",
+                  flexDirection: "row",
+                  margin: "auto",
                 }}
               >
                 <div
                   style={{
-                    width: '50%',
-                    display: 'flex',
-                    flexDirection: 'row'
+                    width: "50%",
+                    display: "flex",
+                    flexDirection: "row",
                   }}
                 >
                   <Paper className={classes.root} elevation={1}>
@@ -281,69 +282,51 @@ class Plant extends Component {
                           </Avatar>
                         }
                       />
-                      <StyledBreadcrumb
-                        component="a"
-                        href="#"
-                        label="Explore"
-                      />
-                      <StyledBreadcrumb
-                        label="Plant"
-                        deleteIcon={<ExpandMoreIcon />}
-                      />
+                      <StyledBreadcrumb component="a" href="#" label="Explore" />
+                      <StyledBreadcrumb label="Plant" deleteIcon={<ExpandMoreIcon />} />
                     </Breadcrumbs>
                   </Paper>
                 </div>
                 <div
                   style={{
-                    width: '50%',
-                    display: 'flex',
-                    flexDirection: 'row-reverse'
+                    width: "50%",
+                    display: "flex",
+                    flexDirection: "row-reverse",
                   }}
                 >
                   <Paper
                     className={classes.root}
                     style={{
-                      width: '400px'
+                      width: "400px",
                     }}
                     elevation={1}
                   >
-                    <InputBase
-                      className={classes.input}
-                      name="inputSearch"
-                      value={this.state.inputSearch}
-                      onChange={this.handleInputChange}
-                      onKeyDown={this.handleKeyDown}
-                      placeholder="Search base on scientific name"
-                    />
-                    <IconButton
-                      className={classes.iconButton}
-                      onClick={this.getDataSearch}
-                      aria-label="Search"
-                    >
+                    <InputBase className={classes.input} name="inputSearch" value={this.state.inputSearch} onChange={this.handleInputChange} onKeyDown={this.handleKeyDown} placeholder="Search base on scientific name" />
+                    <IconButton className={classes.iconButton} onClick={this.getDataSearch} aria-label="Search">
                       <SearchIcon />
                     </IconButton>
                   </Paper>
                 </div>
               </div>
-            </Toolbar>
+            </Toolbar> */}
           </AppBar>
         ) : null}
-        <div
+        {/* <div
           style={{
-            width: '90%',
-            display: 'flex',
-            flexDirection: 'row',
-            margin: 'auto'
+            width: "90%",
+            display: "flex",
+            flexDirection: "row",
+            margin: "auto",
           }}
-        >
-          <div
+        > */}
+        {/* <div
             style={{
-              width: '50%',
-              display: 'flex',
-              flexDirection: 'row'
+              width: "50%",
+              display: "flex",
+              flexDirection: "row",
             }}
-          >
-            <Paper className={classes.root} elevation={1}>
+          > */}
+        {/* <Paper className={classes.root} elevation={1}>
               <Breadcrumbs aria-label="breadcrumb">
                 <StyledBreadcrumb
                   component="a"
@@ -356,45 +339,31 @@ class Plant extends Component {
                   }
                 />
                 <StyledBreadcrumb component="a" href="#" label="Explore" />
-                <StyledBreadcrumb
-                  label="Plant"
-                  deleteIcon={<ExpandMoreIcon />}
-                />
+                <StyledBreadcrumb label="Plant" deleteIcon={<ExpandMoreIcon />} />
               </Breadcrumbs>
-            </Paper>
-          </div>
-          <div
+            </Paper> */}
+        {/* </div> */}
+        {/* <div
             style={{
-              width: '50%',
-              display: 'flex',
-              flexDirection: 'row-reverse'
+              width: "50%",
+              display: "flex",
+              flexDirection: "row-reverse",
             }}
-          >
-            <Paper
+          > */}
+        {/* <Paper
               className={classes.root}
               style={{
-                width: '400px'
+                width: "400px",
               }}
               elevation={1}
             >
-              <InputBase
-                className={classes.input}
-                name="inputSearch"
-                value={this.state.inputSearch}
-                onChange={this.handleInputChange}
-                onKeyDown={this.handleKeyDown}
-                placeholder="Search base on scientific name"
-              />
-              <IconButton
-                className={classes.iconButton}
-                onClick={this.getDataSearch}
-                aria-label="Search"
-              >
+              <InputBase className={classes.input} name="inputSearch" value={this.state.inputSearch} onChange={this.handleInputChange} onKeyDown={this.handleKeyDown} placeholder="Search base on scientific name" />
+              <IconButton className={classes.iconButton} onClick={this.getDataSearch} aria-label="Search">
                 <SearchIcon />
               </IconButton>
-            </Paper>
-          </div>
-        </div>
+            </Paper> */}
+        {/* </div> */}
+        {/* </div> */}
         {this.state.onEror ? (
           <ErorPage />
         ) : this.state.loading ? (
