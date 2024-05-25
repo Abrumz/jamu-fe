@@ -58,7 +58,22 @@ function CardPlant(props) {
       <Card className={classes.card}>
         <CardMedia className={classes.media} image={props.image} />
         <CardContent className={classes.content}>
-          <h1 className="header-card">{props.name}</h1>
+          <h1
+            className="header-card"
+            style={{
+              color: '#023436',
+              // fontSize: 20,
+              fontFamily: 'Poppins',
+              fontWeight: '600',
+              // lineHeight: 26,
+              wordWrap: 'break-word',
+              textAlign: 'center',
+              paddingBottom: 12,
+              height: 'auto'
+            }}
+          >
+            {props.name}
+          </h1>
           <h6
             style={{
               margin: '0',
@@ -67,16 +82,29 @@ function CardPlant(props) {
           >
             Crude drugs :
           </h6>
-          <ul className="reff">
-            {props.reff.map(item => {
-              return <List item={item} />;
+
+          <ul
+            className="reff"
+            style={{ height: 'auto', flexDirection: 'column' }}
+          >
+            {props.reff.slice(0, 3).map((item, index) => {
+              return (
+                <li
+                  key={index}
+                  style={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <span style={{ marginRight: '8px', height: 'auto' }}>
+                    {index + 1}.
+                  </span>
+                  <List item={item} />
+                </li>
+              );
             })}
           </ul>
         </CardContent>
         <CardActions>
           <Button href={`/detail/compound/${props.id}`}>
-            Read More
-            {/* <Icon>chevron_right_rounded</Icon> */}
+            Read More <Icon>chevron_right_rounded</Icon>
           </Button>
         </CardActions>
       </Card>

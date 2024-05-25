@@ -125,6 +125,7 @@ class DetailExplicit extends Component {
                 {moment(this.state.show.datePublish).format('DD/MM/YYYY')}
               </Typography>
             </Paper>
+
             <Button
               onClick={() => this.getFile(this.state.show.file)}
               variant="contained"

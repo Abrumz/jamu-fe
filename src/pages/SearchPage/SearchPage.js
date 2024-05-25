@@ -25,11 +25,14 @@ import Tab from '@material-ui/core/Tab';
 
 import ModalCrude from '../../components/modal-crude/ModalCrude';
 
+import { Grid } from '@material-ui/core';
+
 const styles = {
   root: {
     padding: '2px 4px',
     display: 'flex',
     alignItems: 'center',
+    fontFamily: 'Poppins, sans-serif',
     width: 400
   },
   input: {
@@ -43,7 +46,7 @@ const styles = {
 
 function TabContainer(props) {
   return (
-    <Typography component="div" style={{ padding: 8 * 3 }}>
+    <Typography component="div" style={{ padding: '12px 24px 12px 24px' }}>
       {props.children}
     </Typography>
   );
@@ -53,31 +56,50 @@ function ListExplicit(props) {
   return (
     <div
       style={{
-        marginTop: '0',
-        marginBottom: '26px',
-        maxWidth: '85%'
+        maxWidth: '85%',
+        fontFamily: 'Poppins, sans-serif'
       }}
     >
       <h1
         style={{
-          color: '#0071bc',
-          fontWeight: '500',
-          fontSize: '1.5em'
+          color: 'black',
+          fontWeight: '600',
+          fontSize: '28px',
+          fontStyle: 'normal',
+          lineHeight: '38px',
+          fontFamily: 'Poppins, sans-serif'
         }}
       >
         {props.title}
       </h1>
-      <Typography variant="caption">
-        <Person /> {props.name}
-      </Typography>
-      <Typography variant="caption">
-        <CollectionsBookmark /> Conference paper <DateRange /> 12-12-2001
-      </Typography>
-      <p className="block-with-text">{props.abstract}</p>
-      <Button href={`/explicit/${props.id}`}>
-        Read More <Icon>chevron_right_rounded</Icon>
-      </Button>
-      <Divider light />
+      <Grid container direction="column" spacing={2}>
+        <Grid item>
+          <Typography variant="caption" style={{ fontFamily: 'Poppins' }}>
+            <Person /> {props.name}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant="caption" style={{ fontFamily: 'Poppins' }}>
+            <CollectionsBookmark /> Conference paper
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant="caption" style={{ fontFamily: 'Poppins' }}>
+            <DateRange /> 12-12-2001
+          </Typography>
+        </Grid>
+        <Grid item>
+          <p className="block-with-text">{props.abstract}</p>
+        </Grid>
+        <Grid item>
+          <Button href={`/explicit/${props.id}`}>
+            Read More <Icon>chevron_right_rounded</Icon>
+          </Button>
+        </Grid>
+        <Grid item>
+          <Divider light />
+        </Grid>
+      </Grid>
     </div>
   );
 }
@@ -262,10 +284,11 @@ class SearchPage extends Component {
       <div
         style={{
           display: 'flex',
-          flexDirection: 'column'
+          flexDirection: 'column',
+          fontFamily: 'Poppins, sans-serif'
         }}
       >
-        <div
+        {/* <div
           style={{
             marginTop: '3px',
             width: '100%',
@@ -294,29 +317,45 @@ class SearchPage extends Component {
               <SearchIcon />
             </IconButton>
           </Paper>
-        </div>
+        </div> */}
         <div
           style={{
-            padding: '30px'
+            display: 'flex',
+            flexDirection: 'column',
+            fontFamily: 'Poppins, sans-serif',
+            margin: '30px 0 0 0'
           }}
         >
           <Tabs
             value={this.state.value}
             onChange={this.handleChange}
-            indicatorColor="primary"
-            textColor="primary"
+            centered
+            indicatorColor="#5FAD56"
+            textColor="black"
           >
             <Tab
               disabled={this.state.herbsmed.length === 0}
               label={`Herbal Medicine (${this.state.herbsmed.length})`}
+              style={{
+                fontFamily: 'Poppins, sans-serif',
+                color: this.state.value === 0 ? '#5FAD56' : 'black'
+              }}
             />
             <Tab
               disabled={this.state.plan.length === 0}
               label={`Plant (${this.state.plan.length})`}
+              style={{
+                fontFamily: 'Poppins, sans-serif',
+                color: this.state.value === 1 ? '#5FAD56' : 'black'
+              }}
             />
             <Tab
               disabled={this.state.explicit.length === 0}
               label={`Knowledge (${this.state.explicit.length})`}
+              style={{
+                fontFamily: 'Poppins, sans-serif',
+                color: this.state.value === 2 ? '#5FAD56' : 'black'
+              }}
             />
             {/* <Tab
               disabled={this.state.tacit.length === 0}
@@ -327,14 +366,13 @@ class SearchPage extends Component {
           {this.state.value === 0 && (
             <div
               style={{
-                minHeight: '270px',
-                width: '90%',
-                marginTop: '9px',
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(16rem, 1fr))',
-                gridGap: '2rem',
-                margin: 'auto',
-                padding: '10px'
+                display: 'flex',
+                gridGap: '56px',
+                flexWrap: 'wrap',
+                flexDirection: 'colomn',
+                justifyContent: 'center',
+                alignItems: 'flex-start',
+                margin: '20px 0 30px 0'
               }}
             >
               {this.state.herbsmed.map(item => (
@@ -354,13 +392,13 @@ class SearchPage extends Component {
             <TabContainer>
               <div
                 style={{
-                  minHeight: '270px',
-                  width: '90%',
-                  marginTop: '9px',
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(16rem, 1fr))',
-                  gridGap: '2rem',
-                  padding: '10px'
+                  display: 'flex',
+                  gridGap: '56px',
+                  flexWrap: 'wrap',
+                  flexDirection: 'colomn',
+                  justifyContent: 'center',
+                  alignItems: 'flex-start',
+                  margin: '20px 0 0 0'
                 }}
               >
                 {this.state.plan.map(item => (
@@ -380,10 +418,13 @@ class SearchPage extends Component {
             <TabContainer>
               <div
                 style={{
-                  minHeight: '270px',
-                  width: '90%',
-                  margin: 'auto',
-                  marginTop: '9px'
+                  display: 'flex',
+                  gridGap: '56px',
+                  flexWrap: 'wrap',
+                  flexDirection: 'colomn',
+                  justifyContent: 'center',
+                  alignItems: 'flex-start',
+                  margin: '0 0 20px 0'
                 }}
               >
                 {this.state.explicit.map(item => (

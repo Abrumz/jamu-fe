@@ -390,7 +390,14 @@ class HerbMeds extends Component {
         ) : this.state.loading ? (
           <Spinner />
         ) : (
-          <div className="for-card">
+          <div
+            className="for-card"
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center'
+            }}
+          >
             {this.state.herbmeds.map(item => (
               <CardHerbMed
                 key={item.idherbsmed}
