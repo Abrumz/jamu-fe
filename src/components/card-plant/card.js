@@ -71,14 +71,18 @@ function CardPlant(props) {
               color: 'black',
               display: 'flex',
               alignItems: 'center',
-              fontSize: '16px',
-              marginTop: '-25px'
+              fontSize: '16px'
             }}
           >
             <img
               src={logo}
               alt="Logo"
-              style={{ width: '20px', marginRight: '10px', marginLeft: '12px' }}
+              style={{
+                width: '20px',
+                marginTop: '0px',
+                marginRight: '10px',
+                marginLeft: '12px'
+              }}
             />
             Crude drugs
           </h6>
@@ -88,6 +92,7 @@ function CardPlant(props) {
               paddingBottom: '0px',
               marginBottom: '0px',
               marginLeft: '42px'
+              // backgroundColor:"#000"
             }}
           >
             {props.reff.slice(0, 3).map((item, index) =>
