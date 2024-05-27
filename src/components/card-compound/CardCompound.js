@@ -10,7 +10,7 @@ import Icon from '@material-ui/core/Icon';
 
 const styles = muiBaseTheme => ({
   card: {
-    width: 380,
+    width: 280,
     margin: 'auto',
     transition: '0.3s',
     boxShadow: '0 8px 40px -12px rgba(0,0,0,0.3)',
@@ -30,7 +30,6 @@ const styles = muiBaseTheme => ({
   },
   heading: {
     fontWeight: 'bold'
-    // textAlign: "center"
   },
   subheading: {
     lineHeight: 1.8
@@ -78,19 +77,9 @@ function CardPlant(props) {
           <h6
             style={{
               margin: '0',
-              color: '#023436',
-              fontSize: 16,
-              fontFamily: 'Poppins',
-              fontWeight: '600',
-              display: 'flex',
-              alignItems: 'center'
+              color: 'grey'
             }}
           >
-            <img
-              src="/asset/capsule.png"
-              alt="capsule"
-              style={{ marginRight: '10px', height: '16px', width: 'auto' }}
-            />
             Crude drugs :
           </h6>
 
@@ -113,29 +102,9 @@ function CardPlant(props) {
             })}
           </ul>
         </CardContent>
-        <CardActions style={{ justifyContent: 'center', padding: '10px' }}>
-          <Button
-            href={`/detail/compound/${props.id}`}
-            style={{
-              width: '123',
-              height: '100%',
-              paddingLeft: 16,
-              paddingRight: 16,
-              background: '#EFF7EE',
-              borderRadius: 4,
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: 4,
-              display: 'inline-flex',
-              color: '#5FAD56',
-              fontSize: 16,
-              fontFamily: 'Poppins',
-              fontWeight: '500'
-              // lineHeight: 20,
-              // wordWrap: 'break-word',
-            }}
-          >
-            READ MORE
+        <CardActions>
+          <Button href={`/detail/compound/${props.id}`}>
+            Read More <Icon>chevron_right_rounded</Icon>
           </Button>
         </CardActions>
       </Card>
