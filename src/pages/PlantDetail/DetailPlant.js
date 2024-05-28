@@ -9,6 +9,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardCompound from '../../components/card-compound/CardCompound';
+import CardPlant from '../../components/card-plant/card';
 
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -116,9 +117,11 @@ class DetailPlant extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // compounds: [],
+      compounds: [],
       value: 0,
-      detailPlant: [],
+      detailPlant: {
+        refCompound: [] // Pastikan struktur refCompound sesuai dengan yang diharapkan
+      },
       loading: true,
       loadData: false,
       snackbar: {
@@ -264,7 +267,7 @@ class DetailPlant extends Component {
 
   render() {
     const { classes } = this.props;
-    // const noDataImage = "./not-found.png";
+    const { detailPlant } = this.state;
     return (
       <div>
         {this.state.onEror ? (
@@ -544,7 +547,7 @@ class DetailPlant extends Component {
                 {this.state.value === 0 && (
                   <TabContainer>
                     {this.state.detailPlant.refHerbsMed && (
-                      <div className="for-card">
+                      <div className="for-cards">
                         {this.state.detailPlant.refHerbsMed.map(item => (
                           <CardHerbMed
                             key={item.idherbsmed}
@@ -643,24 +646,6 @@ class DetailPlant extends Component {
                   </TabContainer>
                 )}
 
-                {/* {this.state.value === 2 && (
-                  <TabContainer>
-                    <div className={classes.cardContainer}>
-                      {this.state.detailPlant.refCompound !== undefined && this.state.detailPlant.refCompound.length > 0 ? (
-                        this.state.detailPlant.refCompound.map((itm) => (
-                          <div key={itm._id} className={classes.cardItem}>
-                            <CardCompound id={itm._id} part={itm.refPlant} name={itm.cname} image={`https://pubchem.ncbi.nlm.nih.gov/image/imgsrv.fcgi?cid=${itm.pubchem_ID}`} reff={itm.refPlant} />
-                          </div>
-                        ))
-                      ) : (
-                        <div style={{ textAlign: "center", padding: "0px" }}>
-                          <img src={load} alt="nothing found" style={{ width: "100px", height: "100px" }} />
-                          
-                        </div>
-                      )}
-                    </div>
-                  </TabContainer>
-                )} */}
                 {this.state.value === 2 && (
                   <TabContainer>
                     <div className={classes.cardContainer}>
@@ -672,14 +657,14 @@ class DetailPlant extends Component {
                         </div>
                       ) : this.state.detailPlant.refCompound !== undefined &&
                         this.state.detailPlant.refCompound.length > 0 ? (
-                        this.state.detailPlant.refCompound.map(itm => (
-                          <div key={itm._id} className={classes.cardItem}>
+                        this.state.detailPlant.refCompound.map(item => (
+                          <div key={item._id} className={classes.cardItem}>
                             <CardCompound
-                              id={itm._id}
-                              part={itm.refPlant}
-                              name={itm.cname}
-                              image={`https://pubchem.ncbi.nlm.nih.gov/image/imgsrv.fcgi?cid=${itm.pubchem_ID}`}
-                              reff={itm.refPlant}
+                              id={item._id}
+                              part={item.refPlant}
+                              name={item.cname}
+                              image={`https://pubchem.ncbi.nlm.nih.gov/image/imgsrv.fcgi?cid=${item.pubchem_ID}`}
+                              reff={item.refPlant}
                             />
                           </div>
                         ))
