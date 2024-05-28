@@ -43,6 +43,7 @@ const List = ({ item, modalCrude, id }) => {
 
 function CardPlant(props) {
   const { classes } = props;
+  console.log('CardPlant props:', props);
   return (
     <div>
       {/* <div style={{ display: "flex", flexWrap: "wrap", marginBottom: "20px" }}> */}
