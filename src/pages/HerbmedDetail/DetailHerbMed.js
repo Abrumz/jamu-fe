@@ -27,6 +27,9 @@ import HomeIcon from '@material-ui/icons/Home';
 import { withStyles } from '@material-ui/core/styles';
 import { emphasize } from '@material-ui/core/styles/colorManipulator';
 
+import homeLogo from '../PlantDetail/home-icon.png';
+import plantLogo from '../PlantDetail/plant-icon.png';
+
 const StyledBreadcrumb = withStyles(theme => ({
   root: {
     backgroundColor: theme.palette.grey[100],
@@ -47,6 +50,14 @@ const styles = theme => ({
   avatar: {
     background: 'none',
     marginRight: -theme.spacing(1.5)
+  },
+  tabs: {
+    color: '#5FAD56',
+    backgroundColor: 'white'
+  },
+  indicator: {
+    backgroundColor: '#5FAD56',
+    color: '#5FAD56'
   }
 });
 function TabContainer(props) {
@@ -229,17 +240,30 @@ class DetailHerbMed extends Component {
                   <StyledBreadcrumb
                     component="a"
                     href="/"
-                    label="KMS Jamu"
-                    avatar={
-                      <Avatar className={classes.avatar}>
-                        <HomeIcon />
-                      </Avatar>
+                    label={
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <img
+                          src={homeLogo}
+                          alt="Logo"
+                          style={{ marginRight: '4px' }}
+                        />
+                        Home
+                      </div>
                     }
                   />
                   <StyledBreadcrumb
                     component="a"
                     href="/herbmeds"
-                    label="Herbal Medicine"
+                    label={
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <img
+                          src={plantLogo}
+                          alt="Logo"
+                          style={{ marginRight: '4px' }}
+                        />
+                        Herbal Medicine
+                      </div>
+                    }
                   />
                   <StyledBreadcrumb
                     label={this.state.detailHerbMed.name}
@@ -368,9 +392,8 @@ class DetailHerbMed extends Component {
             <Tabs
               value={this.state.value}
               onChange={this.handleChange}
-              indicatorColor="primary"
-              textColor="primary"
               centered
+              classes={{ root: classes.tabs, indicator: classes.indicator }}
             >
               <Tab label="Crude in this formula" />
               <Tab label="Plant" />
