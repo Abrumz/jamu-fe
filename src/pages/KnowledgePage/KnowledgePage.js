@@ -37,6 +37,8 @@ import HomeIcon from '@material-ui/icons/Home';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 
+import FileDownload from 'js-file-download';
+
 const styles = {
   root: {
     padding: '2px 4px',
@@ -74,44 +76,6 @@ const StyledBreadcrumb = withStyles(theme => ({
   }
 }))(Chip);
 
-function ListExplicit(props) {
-  return (
-    <div
-      style={{
-        marginTop: '0',
-        marginBottom: '26px',
-        maxWidth: '95%'
-      }}
-    >
-      <h1
-        style={{
-          color: '#0071bc',
-          fontWeight: '500',
-          fontSize: '1.5em'
-        }}
-      >
-        {/* <Link style={{ 
-          textDecoration: 'none'
-          }} to={`/explicit/${ props.id }`}>
-            {props.title}
-        </Link> */}
-        {props.title}
-      </h1>
-      <Typography variant="caption">
-        <Person /> {props.name}
-      </Typography>
-      <Typography variant="caption">
-        <CollectionsBookmark /> Conference paper <DateRange /> 12-12-2001
-      </Typography>
-      <p className="block-with-text">{props.abstract}</p>
-      <Button href={`/explicit/${props.id}`}>
-        Read More <Icon>chevron_right_rounded</Icon>
-      </Button>
-      <Divider light />
-    </div>
-  );
-}
-
 class KnowledgePage extends Component {
   constructor(props) {
     super(props);
@@ -132,7 +96,6 @@ class KnowledgePage extends Component {
       name: '',
       type: ''
     };
-    // this.onScroll = this.onScroll.bind(this);
     this.afterUpdate = this.afterUpdate.bind(this);
     this.closeBtn = this.closeBtn.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -140,6 +103,7 @@ class KnowledgePage extends Component {
     this.changeFilter = this.changeFilter.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.ok = this.ok.bind(this);
+    this.getFile = this.getFile.bind(this);
   }
 
   topFunction() {
@@ -178,7 +142,7 @@ class KnowledgePage extends Component {
     try {
       const url = '/jamu/api/explicit/pages/' + this.state.currentPage;
       const res = await Axios.get(url);
-      const { data } = await res;
+      const { data } = res;
       this.afterUpdate(data.success, data.message);
       this.setState({
         pages: data.pages,
@@ -191,6 +155,17 @@ class KnowledgePage extends Component {
         onEror: true,
         loading: false
       });
+    }
+  }
+
+  async getFile(file) {
+    try {
+      const response = await Axios.get(`/jamu/api/explicit/file/` + file, {
+        responseType: 'blob'
+      });
+      FileDownload(response.data, file);
+    } catch (error) {
+      this.afterUpdate(false, error.message);
     }
   }
 
@@ -220,7 +195,7 @@ class KnowledgePage extends Component {
         },
         axiosConfig
       );
-      const { data } = await res;
+      const { data } = res;
       let newData = data.data;
       this.setState({
         onSearch: newData,
@@ -257,7 +232,7 @@ class KnowledgePage extends Component {
       },
       axiosConfig
     );
-    const { data } = await res;
+    const { data } = res;
     let newData = data.data;
     if (this.state.inputSearch === '') {
       this.setState({
@@ -336,7 +311,7 @@ class KnowledgePage extends Component {
                     flexDirection: 'row'
                   }}
                 >
-                  <Paper className={classes.root} elevation={1}>
+                  {/* <Paper className={classes.root} elevation={1}>
                     <Breadcrumbs aria-label="breadcrumb">
                       <StyledBreadcrumb
                         component="a"
@@ -353,12 +328,12 @@ class KnowledgePage extends Component {
                         href="#"
                         label="Knowledge"
                       />
-                      {/* <StyledBreadcrumb
+                      <StyledBreadcrumb
                         label="Explicit Knowledge"
                         deleteIcon={<ExpandMoreIcon />}
-                      /> */}
+                      />
                     </Breadcrumbs>
-                  </Paper>
+                  </Paper> */}
                 </div>
                 <div
                   style={{
@@ -410,7 +385,7 @@ class KnowledgePage extends Component {
               flexDirection: 'row'
             }}
           >
-            <Paper className={classes.root} elevation={1}>
+            {/* <Paper className={classes.root} elevation={1}>
               <Breadcrumbs aria-label="breadcrumb">
                 <StyledBreadcrumb
                   component="a"
@@ -423,14 +398,14 @@ class KnowledgePage extends Component {
                   }
                 />
                 <StyledBreadcrumb component="a" href="#" label="Knowledge" />
-                {/* <StyledBreadcrumb
+                <StyledBreadcrumb
                   label="Explicit Knowledge"
                   deleteIcon={<ExpandMoreIcon />}
-                /> */}
+                />
               </Breadcrumbs>
-            </Paper>
+            </Paper> */}
           </div>
-          <div
+          {/* <div
             style={{
               width: '50%',
               display: 'flex',
@@ -460,7 +435,7 @@ class KnowledgePage extends Component {
                 <SearchIcon />
               </IconButton>
             </Paper>
-          </div>
+          </div> */}
         </div>
         {this.state.onEror ? (
           <ErorPage />
@@ -473,7 +448,6 @@ class KnowledgePage extends Component {
                 display: 'flex',
                 flexDirection: 'row',
                 margin: 'auto',
-                //border:"hsl(0,0%,80%) 1px solid",
                 width: '95%',
                 marginTop: '10px',
                 marginBottom: '10px'
@@ -482,14 +456,11 @@ class KnowledgePage extends Component {
               <div
                 style={{
                   width: '20%'
-                  //position: "fixed"
-                  //border:"hsl(0,0%,80%) 1px solid"
                 }}
               >
                 <div
                   style={{
                     width: '20%'
-                    //position: "fixed"
                   }}
                 >
                   <h3
@@ -551,7 +522,6 @@ class KnowledgePage extends Component {
               <div
                 style={{
                   width: '80%',
-                  //border:"hsl(0,0%,80%) 1px solid",
                   padding: '25px',
                   minHeight: '500px',
                   backgroundColor: '#f1f1f1'
@@ -566,6 +536,7 @@ class KnowledgePage extends Component {
                         name={item.firstName + ' ' + item.lastName}
                         title={item.title}
                         abstract={item.abstract}
+                        getFile={this.getFile}
                       />
                     ))
                   : this.state.explicit.map(item => (
@@ -575,6 +546,7 @@ class KnowledgePage extends Component {
                         name={item.firstName + ' ' + item.lastName}
                         title={item.title}
                         abstract={item.abstract}
+                        getFile={this.getFile}
                       />
                     ))}
               </div>
@@ -602,6 +574,85 @@ class KnowledgePage extends Component {
       </div>
     );
   }
+}
+
+function ListExplicit(props) {
+  return (
+    <div
+      style={{
+        marginTop: '0',
+        marginBottom: '26px',
+        maxWidth: '95%'
+      }}
+    >
+      <h1
+        style={{
+          color: '#0071bc',
+          fontWeight: '500',
+          fontSize: '1.5em',
+          display: 'flex'
+        }}
+      >
+        {props.title}
+      </h1>
+      <Typography
+        variant="caption"
+        style={{
+          display: 'flex',
+          padding: '12px 0px',
+          color: '#023436',
+          fontFamily: 'Poppins',
+          fontSize: '16px',
+          fontWeight: 500,
+          lineHeight: '20px'
+        }}
+      >
+        <Person /> {props.name}
+      </Typography>
+      <Typography
+        variant="caption"
+        style={{
+          display: 'flex',
+          padding: '12px 0px',
+          color: '#023436',
+          fontFamily: 'Poppins',
+          fontSize: '16px',
+          fontWeight: 500,
+          lineHeight: '20px'
+        }}
+      >
+        <CollectionsBookmark /> Conference paper
+      </Typography>
+      <Typography
+        variant="caption"
+        style={{
+          display: 'flex',
+          padding: '12px 0px',
+          color: '#023436',
+          fontFamily: 'Poppins',
+          fontSize: '16px',
+          fontWeight: 500,
+          lineHeight: '20px'
+        }}
+      >
+        <DateRange /> 12-12-2001
+      </Typography>
+
+      <Button
+        onClick={() => props.getFile(props.file)}
+        variant="contained"
+        color="primary"
+      >
+        Download
+      </Button>
+
+      <p className="block-with-text">{props.abstract}</p>
+      <Button href={`/explicit/${props.id}`}>
+        {/* Read More <Icon>chevron_right_rounded</Icon> */}
+      </Button>
+      <Divider light />
+    </div>
+  );
 }
 
 export default withStyles(styles)(KnowledgePage);
