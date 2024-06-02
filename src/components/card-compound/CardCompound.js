@@ -10,7 +10,7 @@ import Icon from '@material-ui/core/Icon';
 
 const styles = muiBaseTheme => ({
   card: {
-    width: 280,
+    width: 380,
     margin: 'auto',
     transition: '0.3s',
     boxShadow: '0 8px 40px -12px rgba(0,0,0,0.3)',
@@ -30,6 +30,7 @@ const styles = muiBaseTheme => ({
   },
   heading: {
     fontWeight: 'bold'
+    // textAlign: "center"
   },
   subheading: {
     lineHeight: 1.8
@@ -77,9 +78,19 @@ function CardPlant(props) {
           <h6
             style={{
               margin: '0',
-              color: 'grey'
+              color: '#023436',
+              fontSize: 16,
+              fontFamily: 'Poppins',
+              fontWeight: '600',
+              display: 'flex',
+              alignItems: 'center'
             }}
           >
+            <img
+              src="/asset/capsule.png"
+              alt="capsule"
+              style={{ marginRight: '10px', height: '16px', width: 'auto' }}
+            />
             Crude drugs :
           </h6>
 
@@ -87,24 +98,53 @@ function CardPlant(props) {
             className="reff"
             style={{ height: 'auto', flexDirection: 'column' }}
           >
-            {props.reff.slice(0, 3).map((item, index) => {
-              return (
-                <li
-                  key={index}
-                  style={{ display: 'flex', alignItems: 'center' }}
+            {props.reff.slice(0, 3).map((item, index) => (
+              <li
+                key={index}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  border: 'unset',
+                  backgroundColor: 'unset'
+                }}
+              >
+                <span
+                  style={{
+                    marginRight: '8px',
+                    height: 'auto',
+                    backgroundColor: 'unset'
+                  }}
                 >
-                  <span style={{ marginRight: '8px', height: 'auto' }}>
-                    {index + 1}.
-                  </span>
-                  <List item={item} />
-                </li>
-              );
-            })}
+                  {index + 1}.
+                </span>
+                <List item={item} />
+              </li>
+            ))}
           </ul>
         </CardContent>
-        <CardActions>
-          <Button href={`/detail/compound/${props.id}`}>
-            Read More <Icon>chevron_right_rounded</Icon>
+        <CardActions style={{ justifyContent: 'center', padding: '10px' }}>
+          <Button
+            href={`/detail/compound/${props.id}`}
+            style={{
+              width: '123',
+              height: '100%',
+              paddingLeft: 16,
+              paddingRight: 16,
+              background: '#EFF7EE',
+              borderRadius: 4,
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: 4,
+              display: 'inline-flex',
+              color: '#5FAD56',
+              fontSize: 16,
+              fontFamily: 'Poppins',
+              fontWeight: '500'
+              // lineHeight: 20,
+              // wordWrap: 'break-word',
+            }}
+          >
+            READ MORE
           </Button>
         </CardActions>
       </Card>

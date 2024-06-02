@@ -322,6 +322,12 @@ class Predict extends Component {
     ];
     const { activeStep } = this.state;
 
+    const stepStyles = {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center' // Optional: Center align the text
+    };
+
     return (
       <div>
         {this.state.onEror ? (
@@ -331,10 +337,12 @@ class Predict extends Component {
         ) : (
           <div
             style={{
-              width: '100%'
+              width: '100%',
+              display: 'flex',
+              flexDirection: 'column'
             }}
           >
-            <Paper
+            {/* <Paper
               style={{
                 width: '90%',
                 margin: 'auto',
@@ -377,7 +385,28 @@ class Predict extends Component {
                   />
                 </Breadcrumbs>
               </div>
-            </Paper>
+            </Paper> */}
+            <paper
+              style={{
+                display: 'flex',
+                justifyContent: 'center'
+              }}
+            >
+              <div
+                style={{
+                  color: 'var(--Text-tx_normal, #023436)',
+                  fontFamily: 'Poppins',
+                  fontSize: '28px',
+                  fontStyle: 'normal',
+                  fontWeight: 600,
+                  lineHeight: '38px',
+                  paddingTop: '60px'
+                }}
+              >
+                Prediction of Therapeutic Usage
+              </div>
+            </paper>
+
             <Paper className={classes.root} elevation={4}>
               <div>
                 <Stepper activeStep={activeStep}>
@@ -389,7 +418,9 @@ class Predict extends Component {
                     }
                     return (
                       <Step key={label} {...props}>
-                        <StepLabel {...labelProps}>{label}</StepLabel>
+                        <StepLabel {...labelProps} style={stepStyles}>
+                          {label}
+                        </StepLabel>
                       </Step>
                     );
                   })}

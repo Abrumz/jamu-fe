@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Paper from '@material-ui/core/Paper';
 import {
   FormControl,
@@ -19,13 +18,28 @@ function Step1(props) {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        flexDirection: 'column',
         width: '50%',
-        minHeight: '400px',
-        backgroundColor: '#f8f8f8'
+        minHeight: '400px'
+        // backgroundColor: '#f8f8f8'
       }}
     >
       <FormControl component="fieldset">
-        <FormLabel component="legend">Select approach :</FormLabel>
+        <FormLabel
+          component="legend"
+          style={{
+            color: 'var(--Text-tx_normal, #023436)',
+            fontFamily: 'Poppins',
+            fontSize: '18px',
+            fontStyle: 'normal',
+            fontWeight: 500,
+            lineHeight: '23px',
+            marginBottom: '48px'
+          }}
+        >
+          Select approach :
+        </FormLabel>
+
         <RadioGroup
           value={props.type}
           aria-label="Approach"
@@ -36,12 +50,27 @@ function Step1(props) {
             value="crude"
             control={<Radio />}
             label="Crude Drug"
+            style={{
+              color: 'var(--Text-tx_normal, #023436)',
+              fontFamily: 'Poppins',
+              fontSize: '18px',
+              fontStyle: 'normal',
+              fontWeight: 400,
+              lineHeight: '23px'
+            }}
           />
           <FormControlLabel
-            disabled
             value="compound"
             control={<Radio />}
             label="Compound"
+            style={{
+              color: 'var(--Text-tx_normal, #023436)',
+              fontFamily: 'Poppins',
+              fontSize: '18px',
+              fontStyle: 'normal',
+              fontWeight: 400,
+              lineHeight: '23px'
+            }}
           />
         </RadioGroup>
       </FormControl>

@@ -23,13 +23,25 @@ function Step2(props) {
         display: 'flex',
         justifyContent: 'center',
         width: '70%',
-        minHeight: '400px',
-        backgroundColor: '#f8f8f8'
+        minHeight: '400px'
+        // backgroundColor: '#f8f8f8'
       }}
     >
       <form style={{ width: '90%' }}>
         <FormControl margin="normal" fullWidth>
-          <InputLabel htmlFor="model">Model </InputLabel>
+          <InputLabel
+            htmlFor="model"
+            style={{
+              color: 'var(--Text-tx_normal, #023436)',
+              fontFamily: 'Poppins',
+              fontSize: '16px',
+              fontStyle: 'normal',
+              fontWeight: 400,
+              lineHeight: '20px'
+            }}
+          >
+            Model{' '}
+          </InputLabel>
           <Select
             native
             name="model"
@@ -47,19 +59,39 @@ function Step2(props) {
         </FormControl>
 
         <FormControl component="fieldset" margin="normal" fullWidth>
-          <FormLabel component="legend">Using optimization :</FormLabel>
+          <FormLabel
+            component="legend"
+            style={{
+              color: 'var(--Text-tx_normal, #023436)',
+              fontFamily: 'Poppins',
+              fontSize: '16px',
+              fontStyle: 'normal',
+              fontWeight: 500,
+              lineHeight: '20px'
+            }}
+          >
+            Using optimization :
+          </FormLabel>
           <RadioGroup
             value={props.optimization}
             aria-label="Using optimization"
             name="optimization"
             onChange={props.handleChange}
+            style={{
+              color: 'var(--Text-tx_normal, #023436)',
+              fontFamily: 'Poppins',
+              fontSize: '16px',
+              fontStyle: 'normal',
+              fontWeight: 400,
+              lineHeight: '20px'
+            }}
           >
-            <FormControlLabel value="1" control={<Radio />} label="yes" />
-            <FormControlLabel value="0" control={<Radio />} label="no" />
+            <FormControlLabel value="1" control={<Radio />} label="Yes" />
+            <FormControlLabel value="0" control={<Radio />} label="No" />
           </RadioGroup>
         </FormControl>
 
-        <FormControl margin="normal" fullWidth>
+        <FormControl margin="normal" fullWidth style={{ borderRadius: '16px' }}>
           <label>Select {props.type} :</label>
           <Picklist
             basis={props.basis}
