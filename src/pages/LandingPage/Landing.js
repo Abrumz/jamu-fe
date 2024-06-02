@@ -134,18 +134,20 @@ class Landing extends Component {
             backgroundColor: '#ffff',
             alignItems: 'center',
             backgroundImage: `url(/asset/bg-homepage.png)`,
-            backgroundSize: 'cover'
+            backgroundSize: '100%',
+            backgroundRepeat: 'no-repeat'
           }}
         >
           <h3
             style={{
               display: 'flex',
+              flexWrap: 'wrap',
               textAlign: 'center',
               fontSize: '3.0em',
               fontFamily: 'Poppins, sans-serif',
               fontWeight: '750',
               margin: '100px 0 20px 0',
-              padding: '0px 400px 0px 400px',
+              // padding: '0px 400px 0px 400px',
               color: 'black'
             }}
           >
@@ -155,6 +157,7 @@ class Landing extends Component {
           <h3
             style={{
               display: 'flex',
+              flexWrap: 'wrap',
               textAlign: 'center',
               fontSize: '1.5em',
               fontFamily: 'Poppins, sans-serif',
@@ -171,7 +174,12 @@ class Landing extends Component {
             square={false}
             className={classes.root}
             elevation={1}
-            style={{ borderRadius: 25, Width: '650px' }}
+            style={{
+              borderRadius: 25,
+              Width: 'auto',
+              display: 'flex',
+              flexWrap: 'wrap'
+            }}
           >
             <FormControl className={classes.margin}></FormControl>
             <InputBase
@@ -195,6 +203,8 @@ class Landing extends Component {
 
           <h3
             style={{
+              display: 'flex',
+              flexWrap: 'wrap',
               textAlign: 'center',
               fontSize: '1em',
               fontFamily: 'Poppins, sans-serif',
