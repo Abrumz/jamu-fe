@@ -93,7 +93,7 @@ function ListExplicit(props) {
         {/* <Link style={{ 
           textDecoration: 'none'
           }} to={`/explicit/${ props.id }`}>
-            {props.title}
+            {props.title}s
         </Link> */}
         {props.title}
       </h1>
@@ -409,58 +409,14 @@ class KnowledgePage extends Component {
               display: 'flex',
               flexDirection: 'row'
             }}
-          >
-            <Paper className={classes.root} elevation={1}>
-              <Breadcrumbs aria-label="breadcrumb">
-                <StyledBreadcrumb
-                  component="a"
-                  href="/"
-                  label="KMS Jamu"
-                  avatar={
-                    <Avatar className={classes.avatar}>
-                      <HomeIcon />
-                    </Avatar>
-                  }
-                />
-                <StyledBreadcrumb component="a" href="#" label="Knowledge" />
-                {/* <StyledBreadcrumb
-                  label="Explicit Knowledge"
-                  deleteIcon={<ExpandMoreIcon />}
-                /> */}
-              </Breadcrumbs>
-            </Paper>
-          </div>
+          ></div>
           <div
             style={{
               width: '50%',
               display: 'flex',
               flexDirection: 'row-reverse'
             }}
-          >
-            <Paper
-              className={classes.root}
-              style={{
-                width: '400px'
-              }}
-              elevation={1}
-            >
-              <InputBase
-                className={classes.input}
-                name="inputSearch"
-                value={this.state.inputSearch}
-                onChange={this.handleInputChange}
-                onKeyDown={this.handleKeyDown}
-                placeholder="Search based on title"
-              />
-              <IconButton
-                className={classes.iconButton}
-                onClick={this.getDataSearch}
-                aria-label="Search"
-              >
-                <SearchIcon />
-              </IconButton>
-            </Paper>
-          </div>
+          ></div>
         </div>
         {this.state.onEror ? (
           <ErorPage />
@@ -494,7 +450,10 @@ class KnowledgePage extends Component {
                 >
                   <h3
                     style={{
-                      margin: '0'
+                      margin: '0',
+                      fontFamily: 'Poppins',
+                      fontSize: 18,
+                      fontWeight: '600'
                     }}
                   >
                     FILTER:
