@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Paper, Typography } from '@material-ui/core';
 
 function Step3(props) {
@@ -16,8 +15,8 @@ function Step3(props) {
             alignItems: 'center',
             flexDirection: 'column',
             width: '50%',
-            minHeight: '400px',
-            backgroundColor: '#f8f8f8'
+            minHeight: '400px'
+            // backgroundColor: '#f8f8f8'
           }}
         >
           <Typography>loading...</Typography>
@@ -26,30 +25,52 @@ function Step3(props) {
         <Paper
           style={{
             display: 'flex',
-            //justifyContent: "center",
             alignItems: 'center',
             flexDirection: 'column',
             width: '50%',
             minHeight: '400px'
+            // backgroundColor: '#f8f8f8'
           }}
         >
           <h3>Summary</h3>
           <Paper
             style={{
               padding: '20px',
-              backgroundColor: '#f8f8f8'
+              backgroundColor: 'white'
             }}
           >
             <table>
               <tr>
-                <td>Type of Prediction</td>
+                <td
+                  style={{
+                    color: 'var(--Text-tx_normal, #023436)',
+                    fontFamily: 'Poppins',
+                    fontSize: '16px',
+                    fontStyle: 'normal',
+                    fontWeight: 500,
+                    lineHeight: '20px'
+                  }}
+                >
+                  Type of Prediction
+                </td>
                 <td>:</td>
                 <td>
                   <span>{props.type}</span>
                 </td>
               </tr>
               <tr>
-                <td>Type of Method</td>
+                <td
+                  style={{
+                    color: 'var(--Text-tx_normal, #023436)',
+                    fontFamily: 'Poppins',
+                    fontSize: '16px',
+                    fontStyle: 'normal',
+                    fontWeight: 500,
+                    lineHeight: '20px'
+                  }}
+                >
+                  Type of Method
+                </td>
                 <td>:</td>
                 <td>
                   <span>{props.model}</span>
@@ -58,7 +79,13 @@ function Step3(props) {
               <tr>
                 <td
                   style={{
-                    verticalAlign: 'top'
+                    verticalAlign: 'top',
+                    color: 'var(--Text-tx_normal, #023436)',
+                    fontFamily: 'Poppins',
+                    fontSize: '16px',
+                    fontStyle: 'normal',
+                    fontWeight: 500,
+                    lineHeight: '20px'
                   }}
                 >{`Selected ${props.type}`}</td>
                 <td
@@ -68,21 +95,23 @@ function Step3(props) {
                 >
                   :
                 </td>
+              </tr>
+              <tr>
                 <td
                   style={{
                     verticalAlign: 'top'
                   }}
                 >
                   <ul
-                    style={{
-                      margin: 0,
-                      marginLeft: 5,
-                      padding: 0,
-                      paddingLeft: 12
-                    }}
+                  // style={{
+                  //   margin: 0,
+                  //   marginLeft: 5,
+                  //   padding: 0,
+                  //   paddingLeft: 12
+                  // }}
                   >
                     {props.target.map(dt => (
-                      <li>{dt.sname}</li>
+                      <li key={dt.sname}>{dt.sname}</li>
                     ))}
                   </ul>
                 </td>
