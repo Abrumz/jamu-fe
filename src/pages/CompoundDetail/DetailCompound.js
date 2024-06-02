@@ -78,7 +78,7 @@ class DetailCompound extends Component {
               width: '50%'
             }}
           >
-            <Typography>Detail {this.state.compound.cname}</Typography>
+            <Typography>Detail Compound {this.state.compound.cname}</Typography>
           </div>
           <div
             style={{
