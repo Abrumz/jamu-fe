@@ -184,10 +184,11 @@ function CardHerbMed(props) {
           <Button
             href={`/herbsmed/${props.id}`}
             style={{
-              fontSize: '15px',
-              fontWeight: 'bold',
+              fontSize: '16px',
+              fontWeight: '600',
               color: '#5FAD56',
               backgroundColor: '#EFF7EE',
+              margin: '0px 0px 8px 8px',
               padding: '10px'
             }}
           >
