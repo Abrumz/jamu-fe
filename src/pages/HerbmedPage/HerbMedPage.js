@@ -264,7 +264,7 @@ class HerbMeds extends Component {
                       <StyledBreadcrumb
                         component="a"
                         href="/"
-                        label="KMS Jamu"
+                        label="Home"
                         avatar={
                           <Avatar className={classes.avatar}>
                             <HomeIcon />
@@ -333,33 +333,6 @@ class HerbMeds extends Component {
               flexDirection: 'row'
             }}
           >
-            <Paper className={classes.root} elevation={1}>
-              <Breadcrumbs aria-label="breadcrumb">
-                <StyledBreadcrumb
-                  component="a"
-                  href="/"
-                  label="KMS Jamu"
-                  avatar={
-                    <Avatar className={classes.avatar}>
-                      <HomeIcon />
-                    </Avatar>
-                  }
-                />
-                <StyledBreadcrumb component="a" href="" label="Explore" />
-                <StyledBreadcrumb
-                  label="Herbal Medicine"
-                  deleteIcon={<ExpandMoreIcon />}
-                />
-              </Breadcrumbs>
-            </Paper>
-          </div>
-          <div
-            style={{
-              width: '50%',
-              display: 'flex',
-              flexDirection: 'row-reverse'
-            }}
-          >
             <Paper
               className={classes.root}
               style={{
@@ -382,6 +355,33 @@ class HerbMeds extends Component {
               >
                 <SearchIcon />
               </IconButton>
+            </Paper>
+          </div>
+          <div
+            style={{
+              width: '50%',
+              display: 'flex',
+              flexDirection: 'row-reverse'
+            }}
+          >
+            <Paper className={classes.root} elevation={1}>
+              <Breadcrumbs aria-label="breadcrumb">
+                <StyledBreadcrumb
+                  component="a"
+                  href="/"
+                  label="Home"
+                  avatar={
+                    <Avatar className={classes.avatar}>
+                      <HomeIcon />
+                    </Avatar>
+                  }
+                />
+                <StyledBreadcrumb component="a" href="" label="Explore" />
+                <StyledBreadcrumb
+                  label="Herbal Medicine"
+                  deleteIcon={<ExpandMoreIcon />}
+                />
+              </Breadcrumbs>
             </Paper>
           </div>
         </div>

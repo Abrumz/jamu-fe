@@ -22,8 +22,6 @@ import ErorPage from '../ErrorPage/ErorPage';
 import ModalCrude from '../../components/modal-crude/ModalCrude';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Chip from '@material-ui/core/Chip';
-import Avatar from '@material-ui/core/Avatar';
-import HomeIcon from '@material-ui/icons/Home';
 import { withStyles } from '@material-ui/core/styles';
 import { emphasize } from '@material-ui/core/styles/colorManipulator';
 
@@ -298,14 +296,14 @@ class DetailHerbMed extends Component {
                 style={{
                   margin: '0',
                   color: 'black',
-                  fontWeight: 'bold',
-                  fontSize: '15px'
+                  fontWeight: '600',
+                  fontSize: '16px'
                 }}
               >
                 Company
               </h5>
               <Typography
-                style={{ marginTop: '10px', fontSize: '14px' }}
+                style={{ marginTop: '10px', fontSize: '15px' }}
                 variant="caption"
                 display="block"
                 gutterBottom
@@ -316,14 +314,14 @@ class DetailHerbMed extends Component {
                 style={{
                   margin: '0',
                   color: 'black',
-                  fontWeight: 'bold',
-                  fontSize: '15px'
+                  fontWeight: '600',
+                  fontSize: '16px'
                 }}
               >
                 Address company
               </h5>
               <Typography
-                style={{ marginTop: '10px', fontSize: '14px' }}
+                style={{ marginTop: '10px', fontSize: '15px' }}
                 variant="caption"
                 display="block"
                 gutterBottom
@@ -334,14 +332,14 @@ class DetailHerbMed extends Component {
                 style={{
                   margin: '0',
                   color: 'black',
-                  fontWeight: 'bold',
-                  fontSize: '15px'
+                  fontWeight: '600',
+                  fontSize: '16px'
                 }}
               >
                 Efficacy
               </h5>
               <Typography
-                style={{ marginTop: '10px', fontSize: '14px' }}
+                style={{ marginTop: '10px', fontSize: '15px' }}
                 variant="caption"
                 display="block"
                 gutterBottom
@@ -352,14 +350,14 @@ class DetailHerbMed extends Component {
                 style={{
                   margin: '0',
                   color: 'black',
-                  fontWeight: 'bold',
-                  fontSize: '15px'
+                  fontWeight: '600',
+                  fontSize: '16px'
                 }}
               >
                 Disease class description
               </h5>
               <Typography
-                style={{ marginTop: '10px', fontSize: '14px' }}
+                style={{ marginTop: '10px', fontSize: '15px' }}
                 variant="caption"
                 display="block"
                 align="justify"
@@ -371,14 +369,14 @@ class DetailHerbMed extends Component {
                 style={{
                   margin: '0',
                   color: 'black',
-                  fontWeight: 'bold',
-                  fontSize: '15px'
+                  fontWeight: '600',
+                  fontSize: '16px'
                 }}
               >
                 Reference
               </h5>
               <Typography
-                style={{ marginTop: '10px', fontSize: '14px' }}
+                style={{ marginTop: '10px', fontSize: '15px' }}
                 variant="caption"
                 display="block"
                 align="justify"
@@ -434,7 +432,7 @@ class DetailHerbMed extends Component {
                     return (
                       <ExpansionPanel>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                          <Typography>
+                          <Typography style={{ fontSize: '16px' }}>
                             {' '}
                             <i>{itm.sname}</i>
                           </Typography>
@@ -446,6 +444,7 @@ class DetailHerbMed extends Component {
                           }}
                         >
                           <Typography
+                            style={{ fontSize: '14px' }}
                             variant="caption"
                             display="block"
                             gutterBottom
@@ -453,6 +452,7 @@ class DetailHerbMed extends Component {
                             <b>Scientific Name:</b> <i>{itm.sname}</i>
                           </Typography>
                           <Typography
+                            style={{ fontSize: '14px' }}
                             variant="caption"
                             display="block"
                             gutterBottom
@@ -460,6 +460,7 @@ class DetailHerbMed extends Component {
                             <b>Name (in English):</b> {itm.name_en}
                           </Typography>
                           <Typography
+                            style={{ fontSize: '14px' }}
                             variant="caption"
                             display="block"
                             gutterBottom
@@ -467,6 +468,7 @@ class DetailHerbMed extends Component {
                             <b>Local Name I:</b> {itm.name_loc1}
                           </Typography>
                           <Typography
+                            style={{ fontSize: '14px' }}
                             variant="caption"
                             display="block"
                             gutterBottom
@@ -474,6 +476,7 @@ class DetailHerbMed extends Component {
                             <b>Local Name II:</b> <i>{itm.name_loc2}</i>
                           </Typography>
                           <Typography
+                            style={{ fontSize: '14px' }}
                             variant="caption"
                             display="block"
                             gutterBottom
@@ -481,6 +484,7 @@ class DetailHerbMed extends Component {
                             <b>Global Name:</b> <i>{itm.gname}</i>
                           </Typography>
                           <Typography
+                            style={{ fontSize: '14px' }}
                             variant="caption"
                             display="block"
                             gutterBottom
@@ -488,6 +492,7 @@ class DetailHerbMed extends Component {
                             <b>Effect:</b> {itm.effect}
                           </Typography>
                           <Typography
+                            style={{ fontSize: '14px' }}
                             variant="caption"
                             display="block"
                             gutterBottom
@@ -495,6 +500,7 @@ class DetailHerbMed extends Component {
                             <b>Location Effect:</b> {itm.effect_loc}
                           </Typography>
                           <Typography
+                            style={{ fontSize: '14px' }}
                             variant="caption"
                             display="block"
                             gutterBottom
