@@ -33,7 +33,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     fontFamily: 'Poppins, sans-serif',
-    width: 400
+    width: '650px'
   },
   input: {
     marginLeft: 8,
@@ -288,36 +288,48 @@ class SearchPage extends Component {
           fontFamily: 'Poppins, sans-serif'
         }}
       >
-        {/* <div
+        <div
           style={{
             marginTop: '3px',
             width: '100%',
             height: '150px',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center',
-            backgroundImage: `url(/asset/bg-kecil.png)`,
-            backgroundSize: 'cover'
+            alignItems: 'center'
+            // backgroundImage: `url(/asset/bg-kecil.png)`,
+            // backgroundSize: 'cover'
           }}
         >
-          <Paper className={classes.root} elevation={1}>
+          <Paper
+            className={classes.root}
+            elevation={1}
+            square={false}
+            style={{
+              borderRadius: 25,
+              Width: 'auto',
+              display: 'flex',
+              flexWrap: 'wrap'
+            }}
+          >
             <InputBase
+              autoFocus
               className={classes.input}
               name="inputSearch"
               value={this.state.inputSearch}
-              onChange={this.handleInputChange}
               onKeyDown={this.handleKeyDown}
-              placeholder="Search here..."
+              onChange={this.handleInputChange}
+              placeholder="Search all here"
+              inputProps={{ style: { fontFamily: 'Poppins, sans-serif' } }}
             />
             <IconButton
-              className={classes.iconButton}
-              href={`/search/${this.state.inputSearch}`}
+              onClick={this.handleClick}
+              // className={classes.iconButton}
               aria-label="Search"
             >
               <SearchIcon />
             </IconButton>
           </Paper>
-        </div> */}
+        </div>
         <div
           style={{
             display: 'flex',
