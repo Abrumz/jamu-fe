@@ -247,7 +247,8 @@ class Compound extends Component {
           <AppBar
             variant="dense"
             style={{
-              backgroundColor: '#89b143'
+              backgroundColor: '#89b143',
+              height: '60px'
             }}
           >
             <Toolbar>
@@ -256,10 +257,11 @@ class Compound extends Component {
                   width: '90%',
                   display: 'flex',
                   flexDirection: 'row',
-                  margin: 'auto'
+                  margin: 'auto',
+                  height: '60px'
                 }}
               >
-                {/* <div
+                <div
                   style={{
                     width: '50%',
                     display: 'flex',
@@ -271,7 +273,7 @@ class Compound extends Component {
                       <StyledBreadcrumb
                         component="a"
                         href="/"
-                        label="KMS Jamu"
+                        label="Home"
                         avatar={
                           <Avatar className={classes.avatar}>
                             <HomeIcon />
@@ -289,8 +291,8 @@ class Compound extends Component {
                       />
                     </Breadcrumbs>
                   </Paper>
-                </div> */}
-                {/* <div
+                </div>
+                <div
                   style={{
                     width: '50%',
                     display: 'flex',
@@ -316,11 +318,14 @@ class Compound extends Component {
                       className={classes.iconButton}
                       onClick={this.getDataSearch}
                       aria-label="Search"
+                      style={{
+                        padding: '12px'
+                      }}
                     >
                       <SearchIcon />
                     </IconButton>
                   </Paper>
-                </div> */}
+                </div>
               </div>
             </Toolbar>
           </AppBar>
@@ -330,10 +335,11 @@ class Compound extends Component {
             width: '90%',
             display: 'flex',
             flexDirection: 'row',
-            margin: 'auto'
+            margin: 'auto',
+            height: '60px'
           }}
         >
-          {/* <div
+          <div
             style={{
               width: '50%',
               display: 'flex',
@@ -345,22 +351,22 @@ class Compound extends Component {
                 <StyledBreadcrumb
                   component="a"
                   href="/"
-                  label="KMS Jamu"
+                  label="Home"
                   avatar={
                     <Avatar className={classes.avatar}>
                       <HomeIcon />
                     </Avatar>
                   }
                 />
-                <StyledBreadcrumb component="a" href="#" label="Explore" />
+                {/* <StyledBreadcrumb component="a" href="#" label="Explore" /> */}
                 <StyledBreadcrumb
                   label="Compound"
                   deleteIcon={<ExpandMoreIcon />}
                 />
               </Breadcrumbs>
             </Paper>
-          </div> */}
-          {/* <div
+          </div>
+          <div
             style={{
               width: '50%',
               display: 'flex',
@@ -386,11 +392,14 @@ class Compound extends Component {
                 className={classes.iconButton}
                 onClick={this.getDataSearch}
                 aria-label="Search"
+                style={{
+                  padding: '12px'
+                }}
               >
                 <SearchIcon />
               </IconButton>
             </Paper>
-          </div> */}
+          </div>
         </div>
         {this.state.onEror ? (
           <ErorPage />

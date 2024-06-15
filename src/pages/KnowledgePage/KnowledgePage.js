@@ -39,6 +39,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 
 import FileDownload from 'js-file-download';
 
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 const styles = {
   root: {
     padding: '2px 4px',
@@ -311,37 +313,6 @@ class KnowledgePage extends Component {
                     flexDirection: 'row'
                   }}
                 >
-                  {/* <Paper className={classes.root} elevation={1}>
-                    <Breadcrumbs aria-label="breadcrumb">
-                      <StyledBreadcrumb
-                        component="a"
-                        href="/"
-                        label="KMS Jamu"
-                        avatar={
-                          <Avatar className={classes.avatar}>
-                            <HomeIcon />
-                          </Avatar>
-                        }
-                      />
-                      <StyledBreadcrumb
-                        component="a"
-                        href="#"
-                        label="Knowledge"
-                      />
-                      <StyledBreadcrumb
-                        label="Explicit Knowledge"
-                        deleteIcon={<ExpandMoreIcon />}
-                      />
-                    </Breadcrumbs>
-                  </Paper> */}
-                </div>
-                <div
-                  style={{
-                    width: '50%',
-                    display: 'flex',
-                    flexDirection: 'row-reverse'
-                  }}
-                >
                   <Paper
                     className={classes.root}
                     style={{
@@ -366,6 +337,37 @@ class KnowledgePage extends Component {
                     </IconButton>
                   </Paper>
                 </div>
+                <div
+                  style={{
+                    width: '50%',
+                    display: 'flex',
+                    flexDirection: 'row-reverse'
+                  }}
+                >
+                  <Paper className={classes.root} elevation={1}>
+                    <Breadcrumbs aria-label="breadcrumb">
+                      <StyledBreadcrumb
+                        component="a"
+                        href="/"
+                        label="KMS Jamu"
+                        avatar={
+                          <Avatar className={classes.avatar}>
+                            <HomeIcon />
+                          </Avatar>
+                        }
+                      />
+                      <StyledBreadcrumb
+                        component="a"
+                        href="#"
+                        label="Knowledge"
+                      />
+                      {/* <StyledBreadcrumb
+                        label="Explicit Knowledge"
+                        deleteIcon={<ExpandMoreIcon />}
+                      /> */}
+                    </Breadcrumbs>
+                  </Paper>
+                </div>
               </div>
             </Toolbar>
           </AppBar>
@@ -383,33 +385,6 @@ class KnowledgePage extends Component {
               width: '50%',
               display: 'flex',
               flexDirection: 'row'
-            }}
-          >
-            {/* <Paper className={classes.root} elevation={1}>
-              <Breadcrumbs aria-label="breadcrumb">
-                <StyledBreadcrumb
-                  component="a"
-                  href="/"
-                  label="KMS Jamu"
-                  avatar={
-                    <Avatar className={classes.avatar}>
-                      <HomeIcon />
-                    </Avatar>
-                  }
-                />
-                <StyledBreadcrumb component="a" href="#" label="Knowledge" />
-                <StyledBreadcrumb
-                  label="Explicit Knowledge"
-                  deleteIcon={<ExpandMoreIcon />}
-                />
-              </Breadcrumbs>
-            </Paper> */}
-          </div>
-          {/* <div
-            style={{
-              width: '50%',
-              display: 'flex',
-              flexDirection: 'row-reverse'
             }}
           >
             <Paper
@@ -435,7 +410,35 @@ class KnowledgePage extends Component {
                 <SearchIcon />
               </IconButton>
             </Paper>
-          </div> */}
+          </div>
+
+          <div
+            style={{
+              width: '50%',
+              display: 'flex',
+              flexDirection: 'row-reverse'
+            }}
+          >
+            <Paper className={classes.root} elevation={1}>
+              <Breadcrumbs aria-label="breadcrumb">
+                <StyledBreadcrumb
+                  component="a"
+                  href="/"
+                  label="KMS Jamu"
+                  avatar={
+                    <Avatar className={classes.avatar}>
+                      <HomeIcon />
+                    </Avatar>
+                  }
+                />
+                <StyledBreadcrumb component="a" href="#" label="Knowledge" />
+                {/* <StyledBreadcrumb
+                  label="Explicit Knowledge"
+                  deleteIcon={<ExpandMoreIcon />}
+                /> */}
+              </Breadcrumbs>
+            </Paper>
+          </div>
         </div>
         {this.state.onEror ? (
           <ErorPage />
