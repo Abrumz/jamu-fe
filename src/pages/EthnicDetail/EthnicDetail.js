@@ -196,13 +196,10 @@ class EthnicDetail extends Component {
                   flexDirection: 'row'
                 }}
               >
-                <Breadcrumbs aria-label="Breadcrumb">
-                  <Typography color="textPrimary">KMS Jamu</Typography>
-                  <Typography color="textPrimary">Ethnic</Typography>
-                  <Typography color="textPrimary">
-                    {this.state.detailEthnic.name}
-                  </Typography>
-                </Breadcrumbs>
+                <SearchInput
+                  nameInput="inputSearch"
+                  inputChange={this.handleSearch}
+                />
               </div>
               <div
                 style={{
@@ -211,10 +208,13 @@ class EthnicDetail extends Component {
                   flexDirection: 'row-reverse'
                 }}
               >
-                <SearchInput
-                  nameInput="inputSearch"
-                  inputChange={this.handleSearch}
-                />
+                <Breadcrumbs aria-label="Breadcrumb">
+                  <Typography color="textPrimary">Home</Typography>
+                  <Typography color="textPrimary">Ethnic</Typography>
+                  <Typography color="textPrimary">
+                    {this.state.detailEthnic.name}
+                  </Typography>
+                </Breadcrumbs>
               </div>
             </div>
             {this.state.onEror ? (

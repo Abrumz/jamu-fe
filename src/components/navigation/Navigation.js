@@ -76,7 +76,8 @@ class Navigation extends Component {
               className="menu"
               style={{
                 width: '80%',
-                display: 'flex'
+                display: 'flex',
+                justifyContent: 'flex-end'
               }}
             >
               <ul
