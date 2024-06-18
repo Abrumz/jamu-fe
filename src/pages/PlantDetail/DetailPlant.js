@@ -547,7 +547,7 @@ class DetailPlant extends Component {
                 {this.state.value === 0 && (
                   <TabContainer>
                     {this.state.detailPlant.refHerbsMed && (
-                      <div className="for-cards">
+                      <div className="for-card grid-col-3">
                         {this.state.detailPlant.refHerbsMed.map(item => (
                           <CardHerbMed
                             key={item.idherbsmed}
