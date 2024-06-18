@@ -21,7 +21,7 @@ jobs:
           node-version: "16"
 
       - name: Install Dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Build the project
         run: npm run build
@@ -57,7 +57,7 @@ jobs:
             git reset --hard origin/main
 
             # Ensure the lockfile is up to date again after resolving conflicts
-            /usr/bin/npm install
+            /usr/bin/npm install --legacy-peer-deps
 
             # Apply stashed changes and resolve conflicts if necessary
             git stash pop || true
