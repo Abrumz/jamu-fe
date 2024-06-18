@@ -77,4 +77,4 @@ jobs:
             /usr/bin/npm run build
 
             # Use pm2 to manage the process
-            /usr/bin/pm2 start /usr/bin/pm2 --name "jamu-kms" -- start || /usr/bin/pm2 restart jamu-kms -f
+            /usr/bin/pm2 start /usr/bin/npm start --name "jamu-kms" -- start || /usr/bin/pm2 restart jamu-kms -f
