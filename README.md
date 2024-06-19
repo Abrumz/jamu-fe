@@ -1,68 +1,57 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Ilmu Komputer 58
 
-## Available Scripts
+## Knowledge System Management - Jamu
 
-In the project directory, you can run:
+## Capstone K3-02
 
-### `npm start`
+| Nama                          | NIM         |
+| ----------------------------- | ----------- |
+| Muhamad Surya Fauzan          | G6401211011 |
+| Muhammad Almal Nafy           | G6401211022 |
+| Muhammad Hilmy Tsaqif Veradin | G6401201112 |
+| Muhammad Ariiq Arrafi         | G6401211062 |
+| Novia Dwi Lestari             | G6401211013 |
+| Made Althaaf Naufal Gusendra  | G6401211068 |
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Deskripsi
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Knowledge Management System Jamu (KMS Jamu) adalah sebuah aplikasi web yang dapat melihat informasi mengenai obat-obatan herbal seperti jamu, melakukan analisis mengenai prediksi khasiat dari tanaman atau senyawa, melakukan perbandingan terhadap dua jamu dari sisi formula, dan melihat kegunaan suatu tanaman obat di etnis pada daerah tertentu.
 
-### `npm test`
+# Fungsi-fungsi
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Herbal Medicine
 
-### `npm run build`
+Melihat informasi obat-obatan herbal mulai dari nama obat herbal, khasiat obat herbal, dan tanaman yang menjadi bahan obat herbal tersebut
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Plant
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Melihat informasi daftar tanaman yang disertai dengan nama tanaman, gambar tanaman, dan bagian-bagian tanaman yang digunakan sebagai bahan obat herbal
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Compound
 
-### `npm run eject`
+Melihat informasi daftar senyawa yang disertai nama senyawa, gambar senyawa, dan daftar tanaman yang memiliki senyawa tersebut
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Comparison
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Melakukan perbandingan komposisi tanaman antar dua obat herbal
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Prediction
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Memprediksi khasiat tanaman jika menjadi obat herbal
 
-## Learn More
+### Knowledge
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Melihat daftar pengetahuan tacit yang berisi judul dari pengetahuan tacit, deskripsi isi dari pengetahuan tacit dan nama penulis pengetahuan tacit tersebut
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Map Ethnic
 
-### Code Splitting
+Melihat kegunaan suatu tanaman obat di etnis pada daerah tertentu
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+# Akses Website
 
-### Analyzing the Bundle Size
+http://kms-jamu.ilkomerz.biz.id
+http://107.175.172.128
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+# Akses API
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+http://107.175.172.128:3003
